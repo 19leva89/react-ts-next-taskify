@@ -4,6 +4,8 @@ This project contains the following technologies:
 - Next 14 (framework)
 - Tailwind CSS (stylization)
 - shadcn/ui (stylization)
+- Lucide React (stylization)
+- PostCSS (transforms CSS code to AST)
 - Stripe (payment service provider)
 
 Server:
