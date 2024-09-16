@@ -3,6 +3,7 @@ This project contains the following technologies:
 - TypeScript
 - Next 14 (framework)
 - Tailwind CSS (stylization)
+- shadcn/ui (stylization)
 - Stripe (payment service provider)
 
 Server:
