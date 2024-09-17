@@ -9,6 +9,7 @@ This project contains the following technologies:
 - Lucide React (stylization)
 - PostCSS (transforms CSS code to AST)
 - Stripe (payment service provider)
+- Zustand (state management)
 
 Server:
 - Prisma 5 (ORM for DB)
