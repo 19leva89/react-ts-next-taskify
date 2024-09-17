@@ -2,6 +2,7 @@ This project contains the following technologies:
 - React 18
 - TypeScript
 - Next 14 (framework)
+- Clerk (Authentication and User Management)
 - Tailwind CSS (stylization)
 - shadcn/ui (stylization)
 - Lucide React (stylization)
@@ -10,3 +11,6 @@ This project contains the following technologies:
 
 Server:
 - Prisma 5 (ORM for DB)
+
+To run the client and server via concurrently:
+npm run dev

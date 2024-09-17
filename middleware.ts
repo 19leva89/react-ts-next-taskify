@@ -1,6 +1,25 @@
-import { clerkMiddleware } from '@clerk/nextjs/server'
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
+import { NextResponse } from 'next/server'
 
-export default clerkMiddleware()
+const isPublicRoute = createRouteMatcher(['/', '/sign-in(.*)', '/sign-up(.*)'])
+
+export default clerkMiddleware((auth, req) => {
+	const { userId, orgId } = auth()
+
+	if (userId && isPublicRoute(req)) {
+		if (orgId) {
+			return NextResponse.redirect(new URL(`/organization/${orgId}`, req.url))
+		}
+
+		return NextResponse.redirect(new URL('/select-org', req.url))
+	}
+
+	if (!isPublicRoute(req)) {
+		auth().protect()
+	}
+
+	return NextResponse.next()
+})
 
 export const config = {
 	matcher: [
