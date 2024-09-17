@@ -3,6 +3,7 @@ This project contains the following technologies:
 - TypeScript
 - Next 14 (framework)
 - Clerk (Authentication and User Management)
+- usehooks-ts (react hook library)
 - Tailwind CSS (stylization)
 - shadcn/ui (stylization)
 - Lucide React (stylization)
