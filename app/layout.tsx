@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+
 import localFont from 'next/font/local'
 import { Poppins } from 'next/font/google'
 
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
 	icons: [
 		{
 			url: '/icon.svg',
-			href: 'icon.svg',
+			href: '/icon.svg',
 		},
 	],
 }
