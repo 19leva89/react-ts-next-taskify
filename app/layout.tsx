@@ -1,23 +1,32 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
+import { Poppins } from 'next/font/google'
+
+import { siteConfig } from '@/config/site'
 
 import './globals.css'
 
-const geistSans = localFont({
-	src: './fonts/GeistVF.woff',
-	variable: '--font-geist-sans',
-	weight: '100 900',
+export const headingFont = localFont({
+	src: '../public/fonts/font.woff2',
 })
 
-const geistMono = localFont({
-	src: './fonts/GeistMonoVF.woff',
-	variable: '--font-geist-mono',
-	weight: '100 900',
+export const textFont = Poppins({
+	subsets: ['latin'],
+	weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 })
 
 export const metadata: Metadata = {
-	title: 'Taskify',
-	description: 'Collaborate, manage projects, and reach new productivity peaks',
+	title: {
+		default: siteConfig.name,
+		template: `%s | ${siteConfig.name}`,
+	},
+	description: siteConfig.description,
+	icons: [
+		{
+			url: '/icon.svg',
+			href: 'icon.svg',
+		},
+	],
 }
 
 export default function RootLayout({
@@ -27,7 +36,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+			<body className={textFont.className}>{children}</body>
 		</html>
 	)
 }
