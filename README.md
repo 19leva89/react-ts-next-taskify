@@ -10,9 +10,9 @@ This project contains the following technologies:
 - PostCSS (transforms CSS code to AST)
 - Stripe (payment service provider)
 - Zustand (state management)
-
-Server:
+- Zod (first schema validation)
 - Prisma 5 (ORM for DB)
+- Concurrently (all projects are running in tandem)
 
 To run the client and server via concurrently:
-npm run dev
+npm run all
