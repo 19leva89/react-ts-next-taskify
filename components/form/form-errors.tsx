@@ -1,3 +1,5 @@
+'use client'
+
 import { XCircle } from 'lucide-react'
 
 interface FormErrorsProps {
