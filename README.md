@@ -7,6 +7,7 @@ This project contains the following technologies:
 - Tailwind CSS (stylization)
 - shadcn/ui (stylization)
 - Lucide React (stylization)
+- Sonner (stylization)
 - PostCSS (transforms CSS code to AST)
 - Stripe (payment service provider)
 - Zustand (state management)

@@ -1,19 +1,17 @@
-import { prisma } from '@/lib/db'
+import { Separator } from '@/components/ui/separator'
 
-import { Board } from './board'
-import { Form } from './form'
+import { Info } from './_components/info'
+import { BoardList } from './_components/board-list'
 
 const OrganizationIdPage = async () => {
-	const boards = await prisma.board.findMany()
-
 	return (
-		<div className="flex flex-col space-y-4">
-			<Form />
+		<div className="w-full mb-20">
+			<Info />
 
-			<div>
-				{boards.map((board) => (
-					<Board key={board.id} id={board.id} title={board.title} />
-				))}
+			<Separator className="my-4" />
+
+			<div className="px-2 md:px-4">
+				<BoardList />
 			</div>
 		</div>
 	)
