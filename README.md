@@ -4,6 +4,7 @@ This project contains the following technologies:
 - Next 14 (framework)
 - Clerk (Authentication and User Management)
 - usehooks-ts (react hook library)
+- Unsplash (photos)
 - Tailwind CSS (stylization)
 - shadcn/ui (stylization)
 - Lucide React (stylization)
