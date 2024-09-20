@@ -3,8 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
 model Board {
@@ -16,6 +17,40 @@ model Board {
   imageFullUrl  String   @db.Text
   imageLinkHtml String   @db.Text
   imageUserName String   @db.Text
+  // 
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
+  // 
+  lists         List[]
+}
+
+model List {
+  id        String   @id @default(uuid())
+  title     String
+  order     Int
+  // 
+  boardId   String
+  board     Board    @relation(fields: [boardId], references: [id], onDelete: Cascade)
+  // 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  // 
+  cards     Card[]
+
+  @@index([boardId])
+}
+
+model Card {
+  id          String   @id @default(uuid())
+  title       String
+  order       Int
+  description String?  @db.Text
+  // 
+  listId      String
+  list        List     @relation(fields: [listId], references: [id], onDelete: Cascade)
+  // 
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([listId])
 }
