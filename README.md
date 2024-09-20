@@ -2,6 +2,7 @@ This project contains the following technologies:
 - React 18
 - TypeScript
 - Next 14 (framework)
+- Prisma 5 (ORM for DB)
 - Clerk (Authentication and User Management)
 - usehooks-ts (react hook library)
 - Unsplash (photos)
@@ -13,7 +14,7 @@ This project contains the following technologies:
 - Stripe (payment service provider)
 - Zustand (state management)
 - Zod (first schema validation)
-- Prisma 5 (ORM for DB)
+- Lodash (library delivering modularity, performance & extras)
 - Concurrently (all projects are running in tandem)
 
 To run the client and server via concurrently:
