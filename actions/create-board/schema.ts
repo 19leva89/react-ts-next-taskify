@@ -12,4 +12,8 @@ export const CreateBoard = z.object({
 		.max(20, {
 			message: 'Title is too long, maximum 20 letters',
 		}),
+	image: z.string({
+		required_error: 'Image is required',
+		invalid_type_error: 'Image is required',
+	}),
 })

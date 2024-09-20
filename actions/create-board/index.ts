@@ -10,15 +10,23 @@ import { CreateBoard } from './schema'
 import { InputType, ReturnType } from './types'
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-	const { userId } = auth()
+	const { userId, orgId } = auth()
 
-	if (!userId) {
+	if (!userId || !orgId) {
 		return {
 			error: 'Unauthorized',
 		}
 	}
 
-	const { title } = data
+	const { title, image } = data
+	const [imageId, imageThumbUrl, imageFullUrl, imageLinkHtml, imageUserName] = image.split('|')
+	// console.log({ imageId, imageThumbUrl, imageFullUrl, imageLinkHtml, imageUserName })
+
+	if (!imageId || !imageThumbUrl || !imageFullUrl || !imageLinkHtml || !imageUserName) {
+		return {
+			error: 'Missing fields. Failed to create board.',
+		}
+	}
 
 	let board
 
@@ -26,6 +34,12 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 		board = await prisma.board.create({
 			data: {
 				title,
+				orgId,
+				imageId,
+				imageThumbUrl,
+				imageFullUrl,
+				imageLinkHtml,
+				imageUserName,
 			},
 		})
 	} catch (error) {
