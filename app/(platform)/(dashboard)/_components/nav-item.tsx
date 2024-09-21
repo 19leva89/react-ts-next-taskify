@@ -6,9 +6,9 @@ import Image from 'next/image'
 import { Activity, CreditCard, Layout, Settings } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
-import { AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
+import { AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 
 export type Organization = {
 	id: string
@@ -66,7 +66,13 @@ export const NavItem = ({ isActive, isExpanded, organization, onExpand }: NavIte
 			>
 				<div className="flex items-center gap-x-2">
 					<div className="w-7 h-7 relative">
-						<Image fill src={organization.imageUrl} alt="Organization" className="rounded-sm object-cover" />
+						<Image
+							fill
+							src={organization.imageUrl}
+							alt="Organization"
+							className="rounded-sm object-cover"
+							sizes="10vw"
+						/>
 					</div>
 
 					<span className="font-medium text-sm">{organization.name}</span>

@@ -1,7 +1,9 @@
-import { auth } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
+import { auth } from '@clerk/nextjs/server'
 
 import { prisma } from '@/lib/db'
+
+import { ListContainer } from './_components/list-container'
 interface BoardIdPageProps {
 	params: {
 		boardId: string
@@ -34,7 +36,11 @@ const BoardIdPage = async ({ params }: BoardIdPageProps) => {
 		},
 	})
 
-	return <div>BoardIdPage</div>
+	return (
+		<div className="p-4 h-full overflow-x-auto">
+			<ListContainer boardId={params.boardId} data={lists} />
+		</div>
+	)
 }
 
 export default BoardIdPage

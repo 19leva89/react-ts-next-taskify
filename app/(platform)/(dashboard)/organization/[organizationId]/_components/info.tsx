@@ -17,7 +17,13 @@ export const Info = () => {
 		<div className="flex items-center gap-x-4">
 			{organization?.imageUrl && (
 				<div className="w-[60px] h-[60px] relative">
-					<Image fill src={organization.imageUrl} alt="Organization" className="rounded-md object-cover" />
+					<Image
+						fill
+						src={organization.imageUrl}
+						alt="Organization"
+						className="rounded-md object-cover"
+						sizes="20vw"
+					/>
 				</div>
 			)}
 

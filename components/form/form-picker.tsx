@@ -10,6 +10,20 @@ import { defaultImages } from '@/constants/images'
 
 import { FormErrors } from './form-errors'
 
+interface UnsplashImage {
+	id: string
+	urls: {
+		thumb: string
+		full: string
+	}
+	links: {
+		html: string
+	}
+	user: {
+		name: string
+	}
+}
+
 interface FormPickerProps {
 	id: string
 	errors?: Record<string, string[] | undefined>
@@ -18,9 +32,9 @@ interface FormPickerProps {
 export const FormPicker = ({ id, errors }: FormPickerProps) => {
 	const { pending } = useFormStatus()
 
-	const [images, setImages] = useState<Array<Record<string, any>>>(defaultImages)
+	const [images, setImages] = useState<Array<UnsplashImage>>(defaultImages)
 	const [isLoading, setIsLoading] = useState<boolean>(true)
-	const [selectedImageId, setSelectedImageId] = useState(null)
+	const [selectedImageId, setSelectedImageId] = useState<string | null>(null)
 
 	useEffect(() => {
 		const fetchImages = async () => {
@@ -31,7 +45,7 @@ export const FormPicker = ({ id, errors }: FormPickerProps) => {
 				})
 
 				if (result && result.response) {
-					const newImages = result.response as Array<Record<string, any>>
+					const newImages = result.response as Array<UnsplashImage>
 					setImages(newImages)
 				} else {
 					console.error('Failed to get images from Unsplash')
@@ -78,9 +92,16 @@ export const FormPicker = ({ id, errors }: FormPickerProps) => {
 							checked={selectedImageId === image.id}
 							disabled={pending}
 							value={`${image.id}|${image.urls.thumb}|${image.urls.full}|${image.links.html}|${image.user.name}`}
+							onChange={() => setSelectedImageId(image.id)}
 						/>
 
-						<Image fill src={image.urls.thumb} alt="Unsplash image" className="object-cover rounded-sm" />
+						<Image
+							fill
+							src={image.urls.thumb}
+							alt="Unsplash image"
+							className="object-cover rounded-sm"
+							sizes="20vw"
+						/>
 
 						{selectedImageId === image.id && (
 							<div className="absolute inset-y-0 h-full w-full bg-black/30 flex items-center justify-center">
