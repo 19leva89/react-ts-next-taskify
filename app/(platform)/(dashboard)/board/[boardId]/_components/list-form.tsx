@@ -55,7 +55,6 @@ export const ListForm = () => {
 	const onSubmit = (formData: FormData) => {
 		const title = formData.get('title') as string
 		const boardId = formData.get('boardId') as string
-		// console.log('boardId:', boardId)
 
 		execute({ title, boardId })
 	}
@@ -75,7 +74,7 @@ export const ListForm = () => {
 						id="title"
 						ref={inputRef}
 						errors={fieldErrors}
-						className=" text-sm font-medium px-2 py-1 h-7 border-transparent hover:border-input focus:border-input transition"
+						className="text-sm font-medium px-2 py-1 h-7 border-transparent hover:border-input focus:border-input transition"
 						placeholder="Enter list title..."
 					/>
 

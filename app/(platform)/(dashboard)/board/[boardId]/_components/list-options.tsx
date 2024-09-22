@@ -21,7 +21,7 @@ interface ListOptionsProps {
 export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
 	const closeRef = useRef<ElementRef<'button'>>(null)
 
-	const { execute: executeDelete, isLoading: isLoadingDelete } = useAction(deleteList, {
+	const { execute: executeDelete } = useAction(deleteList, {
 		onSuccess: (data) => {
 			toast.success(`List '${data.title}' deleted!`)
 			closeRef.current?.click()
@@ -32,7 +32,7 @@ export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
 		},
 	})
 
-	const { execute: executeCopy, isLoading: isLoadingCopy } = useAction(copyList, {
+	const { execute: executeCopy } = useAction(copyList, {
 		onSuccess: (data) => {
 			toast.success(`List '${data.title}' copied!`)
 			closeRef.current?.click()
@@ -77,7 +77,6 @@ export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
 				<Button
 					variant="ghost"
 					onClick={onAddCard}
-					// disabled={isLoading}
 					className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
 				>
 					Add card...
