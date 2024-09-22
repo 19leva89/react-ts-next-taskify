@@ -6,6 +6,7 @@ This project contains the following technologies:
 - Clerk (Authentication and User Management)
 - usehooks-ts (react hook library)
 - Unsplash (photos)
+- @hello-pangea/dnd (drag and drop)
 - Tailwind CSS (stylization)
 - shadcn/ui (stylization)
 - Lucide React (stylization)
