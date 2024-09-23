@@ -2,9 +2,9 @@
 
 import { toast } from 'sonner'
 import { Plus, X } from 'lucide-react'
-import { ElementRef, forwardRef, KeyboardEventHandler, useRef } from 'react'
 import { useParams } from 'next/navigation'
 import { useEventListener, useOnClickOutside } from 'usehooks-ts'
+import { ElementRef, forwardRef, KeyboardEventHandler, useRef } from 'react'
 
 import { useAction } from '@/hooks/use-action'
 import { Button } from '@/components/ui/button'

@@ -17,8 +17,12 @@ interface HeaderProps {
 }
 
 export const Header = ({ data }: HeaderProps) => {
-	const queryClient = useQueryClient()
 	const params = useParams()
+	const queryClient = useQueryClient()
+
+	const inputRef = useRef<ElementRef<'input'>>(null)
+
+	const [title, setTitle] = useState(data.title)
 
 	const { execute } = useAction(updateCard, {
 		onSuccess: (data) => {
@@ -33,10 +37,6 @@ export const Header = ({ data }: HeaderProps) => {
 			toast.error(error)
 		},
 	})
-
-	const inputRef = useRef<ElementRef<'input'>>(null)
-
-	const [title, setTitle] = useState(data.title)
 
 	const onSubmit = (formData: FormData) => {
 		const title = formData.get('title') as string

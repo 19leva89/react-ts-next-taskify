@@ -1,7 +1,7 @@
 import { auth } from '@clerk/nextjs/server'
 
-import { OrgControl } from './_components/org-control'
 import { startCase } from 'lodash'
+import { OrgControl } from './_components/org-control'
 
 export const generateMetadata = async () => {
 	const { orgSlug } = auth()
