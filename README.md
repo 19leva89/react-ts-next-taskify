@@ -4,6 +4,7 @@ This project contains the following technologies:
 - Next 14 (framework)
 - Prisma 5 (ORM for DB)
 - Clerk (Authentication and User Management)
+- React TanStack Query (data fetching and state management)
 - usehooks-ts (react hook library)
 - Unsplash (photos)
 - @hello-pangea/dnd (drag and drop)

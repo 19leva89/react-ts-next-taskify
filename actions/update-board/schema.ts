@@ -1,6 +1,7 @@
 import { z } from 'zod'
 
 export const UpdateBoard = z.object({
+	id: z.string(),
 	title: z
 		.string({
 			required_error: 'Title is required',
@@ -12,5 +13,4 @@ export const UpdateBoard = z.object({
 		.max(20, {
 			message: 'Title is too long, maximum 20 letters',
 		}),
-	id: z.string(),
 })

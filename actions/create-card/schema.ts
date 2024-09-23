@@ -1,6 +1,8 @@
 import { z } from 'zod'
 
 export const CreateCard = z.object({
+	boardId: z.string(),
+	listId: z.string(),
 	title: z
 		.string({
 			required_error: 'Title is required',
@@ -12,6 +14,4 @@ export const CreateCard = z.object({
 		.max(20, {
 			message: 'Title is too long, maximum 20 letters',
 		}),
-	boardId: z.string(),
-	listId: z.string(),
 })

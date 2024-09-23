@@ -1,6 +1,7 @@
 import { z } from 'zod'
 
 export const UpdateListOrder = z.object({
+	boardId: z.string(),
 	items: z.array(
 		z.object({
 			id: z.string(),
@@ -10,5 +11,4 @@ export const UpdateListOrder = z.object({
 			updatedAt: z.date(),
 		}),
 	),
-	boardId: z.string(),
 })
