@@ -24,3 +24,4 @@ npm run all
 
 npx prisma migrate reset
 npx prisma db push
+npx prisma generate
