@@ -19,6 +19,8 @@ This project contains the following technologies:
 - Lodash (library delivering modularity, performance & extras)
 - Concurrently (all projects are running in tandem)
 
+date-fns
+
 To run the client and server via concurrently:
 npm run all
 
