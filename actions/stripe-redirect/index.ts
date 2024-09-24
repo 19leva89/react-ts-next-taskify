@@ -9,9 +9,9 @@ import { absolureUrl } from '@/lib/utils'
 import { createSafeAction } from '@/lib/create-safe-action'
 
 import { StripeRedirect } from './schema'
-import { ReturnType } from './types'
+import { InputType, ReturnType } from './types'
 
-const handler = async (): Promise<ReturnType> => {
+const handler = async (data: InputType): Promise<ReturnType> => {
 	const { userId, orgId } = auth()
 	const user = await currentUser()
 
