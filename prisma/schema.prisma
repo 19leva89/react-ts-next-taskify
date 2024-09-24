@@ -22,18 +22,20 @@ enum ENTITY_TYPE {
 
 model Board {
   id            String   @id @default(uuid())
-  orgId         String
+  orgId         String   @map("org_id")
   title         String
-  imageId       String
-  imageThumbUrl String   @db.Text
-  imageFullUrl  String   @db.Text
-  imageLinkHtml String   @db.Text
-  imageUserName String   @db.Text
+  imageId       String   @map("image_id")
+  imageThumbUrl String   @map("image_thumb_url") @db.Text
+  imageFullUrl  String   @map("image_full_url") @db.Text
+  imageLinkHtml String   @map("image_link_html") @db.Text
+  imageUserName String   @map("image_user_name") @db.Text
   // 
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
   // 
   lists         List[]
+
+  @@map("board")
 }
 
 model List {
@@ -41,15 +43,16 @@ model List {
   title     String
   order     Int
   // 
-  boardId   String
+  boardId   String   @map("board_id")
   board     Board    @relation(fields: [boardId], references: [id], onDelete: Cascade)
   // 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
   // 
   cards     Card[]
 
   @@index([boardId])
+  @@map("list")
 }
 
 model Card {
@@ -58,26 +61,52 @@ model Card {
   order       Int
   description String?  @db.Text
   // 
-  listId      String
+  listId      String   @map("list_id")
   list        List     @relation(fields: [listId], references: [id], onDelete: Cascade)
   // 
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
 
   @@index([listId])
+  @@map("card")
 }
 
 model AuditLog {
   id          String      @id @default(uuid())
-  orgId       String
+  orgId       String      @map("org_id")
   action      ACTION
-  entityId    String
-  entityType  ENTITY_TYPE
-  entityTitle String
-  userId      String
-  userImage   String      @db.Text
-  userName    String      @db.Text
+  entityId    String      @map("entity_id")
+  entityType  ENTITY_TYPE @map("entity_type")
+  entityTitle String      @map("entity_title")
+  userId      String      @map("user_id")
+  userImage   String      @map("user_image") @db.Text
+  userName    String      @map("user_name") @db.Text
   //
-  createdAt   DateTime    @default(now())
-  updatedAt   DateTime    @updatedAt
+  createdAt   DateTime    @default(now()) @map("created_at")
+  updatedAt   DateTime    @updatedAt @map("updated_at")
+
+  @@map("audit_log")
+}
+
+model OrgLimit {
+  id        String   @id @default(uuid())
+  orgId     String   @unique @map("org_id")
+  count     Int      @default(0)
+  //
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("org_limit")
+}
+
+model OrgSubscription {
+  id                     String    @id @default(uuid())
+  orgId                  String    @unique @map("org_id")
+  //
+  stripeCustomerId       String?   @unique @map("stripe_customer_id")
+  stripeSubscriptionId   String?   @unique @map("stripe_subscription_id")
+  stripePriceId          String?   @map("stripe_price_id")
+  stripeCurrentPeriodEnd DateTime? @map("stripe_current_period_end")
+
+  @@map("org_subscription")
 }

@@ -42,6 +42,7 @@ export const ListHeader = ({ data, onAddCard }: ListHeaderProps) => {
 			setTitle(data.title)
 			disableEditing()
 		},
+
 		onError: (error) => {
 			toast.error(error)
 		},
