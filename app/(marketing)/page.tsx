@@ -3,7 +3,7 @@ import { Medal } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
-import { headingFont, textFont } from '../layout'
+import { headingFont, textFont } from '../fonts'
 
 const MarketingPage = () => {
 	return (

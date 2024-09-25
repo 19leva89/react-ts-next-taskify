@@ -27,7 +27,7 @@ export const BoardList = async () => {
 		},
 	})
 
-	const availableCount = await getAvailableCount()
+	const availableCount = (await getAvailableCount()) ?? 0
 	const isPro = await checkSubscription()
 
 	return (
