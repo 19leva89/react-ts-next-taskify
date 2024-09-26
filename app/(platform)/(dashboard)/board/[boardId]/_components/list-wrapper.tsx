@@ -1,5 +1,3 @@
-'use client'
-
 interface ListWrapperProps {
 	children: React.ReactNode
 }
