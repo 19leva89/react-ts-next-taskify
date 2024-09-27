@@ -25,8 +25,8 @@ export const UpdateCard = z.object({
 			.min(3, {
 				message: 'Description is too short',
 			})
-			.max(255, {
-				message: 'Description is too long, maximum 255 letters',
+			.max(500, {
+				message: 'Description is too long, maximum 500 letters',
 			}),
 	),
 })
