@@ -1,10 +1,10 @@
-import { NextResponse } from 'next/server'
 import { auth } from '@clerk/nextjs/server'
 import { ENTITY_TYPE } from '@prisma/client'
+import { NextRequest, NextResponse } from 'next/server'
 
 import { prisma } from '@/lib/db'
 
-export async function GET(req: Request, { params }: { params: { cardId: string } }) {
+export async function GET(req: NextRequest, { params }: { params: { cardId: string } }) {
 	try {
 		const { userId, orgId } = auth()
 
