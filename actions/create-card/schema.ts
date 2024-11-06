@@ -11,7 +11,7 @@ export const CreateCard = z.object({
 		.min(3, {
 			message: 'Title is too short',
 		})
-		.max(20, {
-			message: 'Title is too long, maximum 20 letters',
+		.max(200, {
+			message: 'Title is too long, maximum 200 letters',
 		}),
 })
