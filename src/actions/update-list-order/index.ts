@@ -10,12 +10,10 @@ import { UpdateListOrder } from './schema'
 import { InputType, ReturnType } from './types'
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-	const { userId, orgId } = auth()
+	const { userId, orgId } = await auth()
 
 	if (!userId || !orgId) {
-		return {
-			error: 'Unauthorized',
-		}
+		return { error: 'Unauthorized' }
 	}
 
 	const { items, boardId } = data
@@ -24,24 +22,12 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 
 	try {
 		const transaction = items.map((list) =>
-			prisma.list.update({
-				where: {
-					id: list.id,
-					board: {
-						orgId,
-					},
-				},
-				data: {
-					order: list.order,
-				},
-			}),
+			prisma.list.update({ where: { id: list.id, board: { orgId } }, data: { order: list.order } }),
 		)
 
 		lists = await prisma.$transaction(transaction)
 	} catch (error) {
-		return {
-			error: 'Failed to reorder',
-		}
+		return { error: 'Failed to reorder' }
 	}
 
 	revalidatePath(`/board/${boardId}`)

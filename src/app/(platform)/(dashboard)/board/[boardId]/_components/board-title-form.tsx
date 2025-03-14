@@ -2,7 +2,7 @@
 
 import { toast } from 'sonner'
 import { Board } from '@prisma/client'
-import { ElementRef, useRef, useState } from 'react'
+import { ComponentRef, useRef, useState } from 'react'
 
 import { Button } from '@/components/ui'
 import { FormInput } from '@/components/shared/form/form-input'
@@ -27,8 +27,8 @@ export const BoardTitleForm = ({ data }: Props) => {
 		},
 	})
 
-	const formRef = useRef<ElementRef<'form'>>(null)
-	const inputRef = useRef<ElementRef<'input'>>(null)
+	const formRef = useRef<ComponentRef<'form'>>(null)
+	const inputRef = useRef<ComponentRef<'input'>>(null)
 
 	const [title, setTitle] = useState(data.title)
 	const [isEditing, setIsEditing] = useState(false)
@@ -49,10 +49,7 @@ export const BoardTitleForm = ({ data }: Props) => {
 	const onSubmit = (formData: FormData) => {
 		const title = formData.get('title') as string
 
-		execute({
-			id: data.id,
-			title,
-		})
+		execute({ id: data.id, title })
 	}
 
 	const onBlur = () => {

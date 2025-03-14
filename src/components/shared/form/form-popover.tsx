@@ -3,7 +3,7 @@
 import { toast } from 'sonner'
 import { X } from 'lucide-react'
 import { useRouter } from 'next/navigation'
-import { ElementRef, ReactNode, useRef } from 'react'
+import { ComponentRef, ReactNode, useRef } from 'react'
 
 import { useAction } from '@/hooks/use-action'
 import { useProModal } from '@/hooks/use-pro-modal'
@@ -25,7 +25,7 @@ interface Props {
 export const FormPopover = ({ children, side = 'bottom', align, sideOffset = 0 }: Props) => {
 	const proModal = useProModal()
 	const router = useRouter()
-	const closeRef = useRef<ElementRef<'button'>>(null)
+	const closeRef = useRef<ComponentRef<'button'>>(null)
 
 	const { execute, fieldErrors } = useAction(createBoard, {
 		onSuccess: (data) => {
@@ -55,11 +55,13 @@ export const FormPopover = ({ children, side = 'bottom', align, sideOffset = 0 }
 			<PopoverContent align={align} side={side} sideOffset={sideOffset} className="w-80 pt-3">
 				<div className="text-sm font-medium text-center text-neutral-600 pb-4">Create board</div>
 
-				<div ref={closeRef}>
-					<Button className="h-auto w-auto p-2 absolute top-2 right-2 text-neutral-600" variant="ghost">
-						<X className="h-4 w-4" />
-					</Button>
-				</div>
+				<Button
+					variant="ghost"
+					ref={closeRef}
+					className="h-auto w-auto p-2 absolute top-2 right-2 text-neutral-600"
+				>
+					<X className="h-4 w-4" />
+				</Button>
 
 				<form action={onSubmit} className="space-y-4">
 					<div className="space-y-4">

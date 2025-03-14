@@ -4,7 +4,7 @@ import { toast } from 'sonner'
 import { Plus, X } from 'lucide-react'
 import { useParams } from 'next/navigation'
 import { useEventListener, useOnClickOutside } from 'usehooks-ts'
-import { ElementRef, forwardRef, KeyboardEventHandler, useRef } from 'react'
+import { ComponentRef, forwardRef, KeyboardEventHandler, RefObject, useRef } from 'react'
 
 import { Button } from '@/components/ui'
 import { useAction } from '@/hooks/use-action'
@@ -22,7 +22,7 @@ interface Props {
 export const CardForm = forwardRef<HTMLTextAreaElement, Props>(
 	({ listId, isEditing, enableEditing, disableEditing }, ref) => {
 		const params = useParams()
-		const formRef = useRef<ElementRef<'form'>>(null)
+		const formRef = useRef<ComponentRef<'form'>>(null)
 
 		const { execute, fieldErrors } = useAction(createCard, {
 			onSuccess: (data) => {
@@ -59,7 +59,7 @@ export const CardForm = forwardRef<HTMLTextAreaElement, Props>(
 		}
 
 		useEventListener('keydown', onKeyDown)
-		useOnClickOutside(formRef, disableEditing)
+		useOnClickOutside(formRef as RefObject<HTMLElement>, disableEditing)
 
 		if (isEditing) {
 			return (

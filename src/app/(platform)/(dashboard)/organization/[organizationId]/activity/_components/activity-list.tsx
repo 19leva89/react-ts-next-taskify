@@ -6,20 +6,13 @@ import { Skeleton } from '@/components/ui'
 import { ActivityItem } from '@/components/shared/activity-item'
 
 export const ActivityList = async () => {
-	const { orgId } = auth()
+	const { orgId } = await auth()
 
 	if (!orgId) {
 		return redirect('/select-org')
 	}
 
-	const auditLogs = await prisma.auditLog.findMany({
-		where: {
-			orgId,
-		},
-		orderBy: {
-			createdAt: 'desc',
-		},
-	})
+	const auditLogs = await prisma.auditLog.findMany({ where: { orgId }, orderBy: { createdAt: 'desc' } })
 
 	return (
 		<ol className="space-y-4 mt-4">

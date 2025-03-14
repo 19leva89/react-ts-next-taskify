@@ -10,12 +10,10 @@ import { UpdateCardOrder } from './schema'
 import { InputType, ReturnType } from './types'
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-	const { userId, orgId } = auth()
+	const { userId, orgId } = await auth()
 
 	if (!userId || !orgId) {
-		return {
-			error: 'Unauthorized',
-		}
+		return { error: 'Unauthorized' }
 	}
 
 	const { items, boardId } = data
@@ -25,26 +23,14 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 	try {
 		const transaction = items.map((card) =>
 			prisma.card.update({
-				where: {
-					id: card.id,
-					list: {
-						board: {
-							orgId,
-						},
-					},
-				},
-				data: {
-					order: card.order,
-					listId: card.listId,
-				},
+				where: { id: card.id, list: { board: { orgId } } },
+				data: { order: card.order, listId: card.listId },
 			}),
 		)
 
 		cards = await prisma.$transaction(transaction)
 	} catch (error) {
-		return {
-			error: 'Failed to reorder',
-		}
+		return { error: 'Failed to reorder' }
 	}
 
 	revalidatePath(`/board/${boardId}`)

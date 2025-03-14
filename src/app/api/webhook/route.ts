@@ -7,7 +7,7 @@ import { stripe } from '@/lib/stripe'
 
 export async function POST(req: NextRequest) {
 	const body = await req.text()
-	const signature = headers().get('Stripe-Signature') as string
+	const signature = (await headers()).get('Stripe-Signature') as string
 
 	if (!signature) {
 		return new NextResponse('Missing Stripe signature', { status: 400 })
@@ -51,9 +51,7 @@ export async function POST(req: NextRequest) {
 		const subscription = await stripe.subscriptions.retrieve(session.subscription as string)
 
 		const subscriptionRecord = await prisma.orgSubscription.findUnique({
-			where: {
-				stripeSubscriptionId: subscription.id,
-			},
+			where: { stripeSubscriptionId: subscription.id },
 		})
 
 		if (!subscriptionRecord) {
@@ -63,9 +61,7 @@ export async function POST(req: NextRequest) {
 
 		try {
 			await prisma.orgSubscription.update({
-				where: {
-					stripeSubscriptionId: subscription.id,
-				},
+				where: { stripeSubscriptionId: subscription.id },
 				data: {
 					stripePriceId: subscription.items.data[0].price.id,
 					stripeCurrentPeriodEnd: new Date(subscription.current_period_end * 1000),

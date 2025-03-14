@@ -14,12 +14,10 @@ import { DeleteBoard } from './schema'
 import { InputType, ReturnType } from './types'
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-	const { userId, orgId } = auth()
+	const { userId, orgId } = await auth()
 
 	if (!userId || !orgId) {
-		return {
-			error: 'Unauthorized',
-		}
+		return { error: 'Unauthorized' }
 	}
 
 	const { id } = data
@@ -27,12 +25,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 	let board
 
 	try {
-		board = await prisma.board.delete({
-			where: {
-				id,
-				orgId,
-			},
-		})
+		board = await prisma.board.delete({ where: { id, orgId } })
 
 		await decreaseAvailableCount()
 
@@ -43,9 +36,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 			entityTitle: board.title,
 		})
 	} catch (error) {
-		return {
-			error: 'Failed to delete',
-		}
+		return { error: 'Failed to delete' }
 	}
 
 	revalidatePath(`/organization/${orgId}`)

@@ -3,7 +3,7 @@
 import { toast } from 'sonner'
 import { List } from '@prisma/client'
 import { useEventListener } from 'usehooks-ts'
-import { ElementRef, useRef, useState } from 'react'
+import { ComponentRef, useRef, useState } from 'react'
 
 import { useAction } from '@/hooks/use-action'
 import { updateList } from '@/actions/update-list'
@@ -17,8 +17,8 @@ interface Props {
 }
 
 export const ListHeader = ({ data, onAddCard }: Props) => {
-	const formRef = useRef<ElementRef<'form'>>(null)
-	const inputRef = useRef<ElementRef<'input'>>(null)
+	const formRef = useRef<ComponentRef<'form'>>(null)
+	const inputRef = useRef<ComponentRef<'input'>>(null)
 
 	const [title, setTitle] = useState(data.title)
 	const [isEditing, setIsEditing] = useState(false)

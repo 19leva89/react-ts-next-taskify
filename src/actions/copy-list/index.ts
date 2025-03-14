@@ -12,12 +12,10 @@ import { CopyList } from './schema'
 import { InputType, ReturnType } from './types'
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-	const { userId, orgId } = auth()
+	const { userId, orgId } = await auth()
 
 	if (!userId || !orgId) {
-		return {
-			error: 'Unauthorized',
-		}
+		return { error: 'Unauthorized' }
 	}
 
 	const { id, boardId } = data
@@ -26,16 +24,8 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 
 	try {
 		const listToCopy = await prisma.list.findUnique({
-			where: {
-				id,
-				boardId,
-				board: {
-					orgId,
-				},
-			},
-			include: {
-				cards: true,
-			},
+			where: { id, boardId, board: { orgId } },
+			include: { cards: true },
 		})
 
 		if (!listToCopy) {
@@ -65,9 +55,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 					},
 				},
 			},
-			include: {
-				cards: true,
-			},
+			include: { cards: true },
 		})
 
 		await createAuditLog({
@@ -77,9 +65,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 			entityTitle: list.title,
 		})
 	} catch (error) {
-		return {
-			error: 'Failed to copy',
-		}
+		return { error: 'Failed to copy' }
 	}
 
 	revalidatePath(`/board/${boardId}`)

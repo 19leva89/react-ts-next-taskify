@@ -2,9 +2,9 @@
 
 import { toast } from 'sonner'
 import { Plus, X } from 'lucide-react'
-import { ElementRef, useRef, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { useEventListener, useOnClickOutside } from 'usehooks-ts'
+import { ComponentRef, RefObject, useRef, useState } from 'react'
 
 import { Button } from '@/components/ui'
 import { useAction } from '@/hooks/use-action'
@@ -17,8 +17,8 @@ import { ListWrapper } from './list-wrapper'
 export const ListForm = () => {
 	const router = useRouter()
 	const params = useParams()
-	const formRef = useRef<ElementRef<'form'>>(null)
-	const inputRef = useRef<ElementRef<'input'>>(null)
+	const formRef = useRef<ComponentRef<'form'>>(null)
+	const inputRef = useRef<ComponentRef<'input'>>(null)
 
 	const [isEditing, setIsEditing] = useState(false)
 
@@ -61,7 +61,7 @@ export const ListForm = () => {
 	}
 
 	useEventListener('keydown', onKeyDown)
-	useOnClickOutside(formRef, disableEditing)
+	useOnClickOutside(formRef as RefObject<HTMLElement>, disableEditing)
 
 	if (isEditing) {
 		return (

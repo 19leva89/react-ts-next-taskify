@@ -14,12 +14,10 @@ import { CreateBoard } from './schema'
 import { InputType, ReturnType } from './types'
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-	const { userId, orgId } = auth()
+	const { userId, orgId } = await auth()
 
 	if (!userId || !orgId) {
-		return {
-			error: 'Unauthorized',
-		}
+		return { error: 'Unauthorized' }
 	}
 
 	const canCreate = await hasAvailableCount()
@@ -34,24 +32,14 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 	// console.log({ imageId, imageThumbUrl, imageFullUrl, imageLinkHtml, imageUserName })
 
 	if (!imageId || !imageThumbUrl || !imageFullUrl || !imageLinkHtml || !imageUserName) {
-		return {
-			error: 'Missing fields. Failed to create board.',
-		}
+		return { error: 'Missing fields. Failed to create board.' }
 	}
 
 	let board
 
 	try {
 		board = await prisma.board.create({
-			data: {
-				title,
-				orgId,
-				imageId,
-				imageThumbUrl,
-				imageFullUrl,
-				imageLinkHtml,
-				imageUserName,
-			},
+			data: { title, orgId, imageId, imageThumbUrl, imageFullUrl, imageLinkHtml, imageUserName },
 		})
 
 		await incrementAvailableCount()
@@ -63,9 +51,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 			entityTitle: board.title,
 		})
 	} catch (error) {
-		return {
-			error: 'Failed to create',
-		}
+		return { error: 'Failed to create' }
 	}
 
 	revalidatePath(`/board/${board.id}`)

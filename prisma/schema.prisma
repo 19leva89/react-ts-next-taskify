@@ -21,7 +21,7 @@ enum ENTITY_TYPE {
 }
 
 model Board {
-  id            String   @id @default(uuid())
+  id            String   @id @default(cuid()) @map("_id")
   orgId         String   @map("org_id")
   title         String
   imageId       String   @map("image_id")
@@ -35,11 +35,12 @@ model Board {
   // 
   lists         List[]
 
+  @@index([orgId])
   @@map("board")
 }
 
 model List {
-  id        String   @id @default(uuid())
+  id        String   @id @default(cuid()) @map("_id")
   title     String
   order     Int
   // 
@@ -52,11 +53,12 @@ model List {
   cards     Card[]
 
   @@index([boardId])
+  @@index([boardId, order])
   @@map("list")
 }
 
 model Card {
-  id          String   @id @default(uuid())
+  id          String   @id @default(cuid()) @map("_id")
   title       String
   order       Int
   description String?  @db.Text
@@ -68,11 +70,12 @@ model Card {
   updatedAt   DateTime @updatedAt @map("updated_at")
 
   @@index([listId])
+  @@index([listId, order])
   @@map("card")
 }
 
 model AuditLog {
-  id          String      @id @default(uuid())
+  id          String      @id @default(cuid()) @map("_id")
   orgId       String      @map("org_id")
   action      ACTION
   entityId    String      @map("entity_id")
@@ -85,11 +88,15 @@ model AuditLog {
   createdAt   DateTime    @default(now()) @map("created_at")
   updatedAt   DateTime    @updatedAt @map("updated_at")
 
+  @@index([orgId])
+  @@index([userId])
+  @@index([entityId, entityType])
+  @@index([createdAt])
   @@map("audit_log")
 }
 
 model OrgLimit {
-  id        String   @id @default(uuid())
+  id        String   @id @default(cuid()) @map("_id")
   orgId     String   @unique @map("org_id")
   count     Int      @default(0)
   //
@@ -100,7 +107,7 @@ model OrgLimit {
 }
 
 model OrgSubscription {
-  id                     String    @id @default(uuid())
+  id                     String    @id @default(cuid()) @map("_id")
   orgId                  String    @unique @map("org_id")
   //
   stripeCustomerId       String?   @unique @map("stripe_customer_id")
@@ -108,5 +115,6 @@ model OrgSubscription {
   stripePriceId          String?   @map("stripe_price_id")
   stripeCurrentPeriodEnd DateTime? @map("stripe_current_period_end")
 
+  @@index([stripeCurrentPeriodEnd])
   @@map("org_subscription")
 }

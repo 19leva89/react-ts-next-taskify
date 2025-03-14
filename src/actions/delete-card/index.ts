@@ -12,12 +12,10 @@ import { DeleteCard } from './schema'
 import { InputType, ReturnType } from './types'
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-	const { userId, orgId } = auth()
+	const { userId, orgId } = await auth()
 
 	if (!userId || !orgId) {
-		return {
-			error: 'Unauthorized',
-		}
+		return { error: 'Unauthorized' }
 	}
 
 	const { id, boardId } = data
@@ -25,16 +23,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 	let card
 
 	try {
-		card = await prisma.card.delete({
-			where: {
-				id,
-				list: {
-					board: {
-						orgId,
-					},
-				},
-			},
-		})
+		card = await prisma.card.delete({ where: { id, list: { board: { orgId } } } })
 
 		await createAuditLog({
 			action: ACTION.DELETE,
@@ -43,9 +32,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 			entityTitle: card.title,
 		})
 	} catch (error) {
-		return {
-			error: 'Failed to delete',
-		}
+		return { error: 'Failed to delete' }
 	}
 
 	revalidatePath(`/board/${boardId}`)

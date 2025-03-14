@@ -7,17 +7,9 @@ import './globals.css'
 import { PropsWithChildren } from 'react'
 
 export const metadata: Metadata = {
-	title: {
-		default: siteConfig.name,
-		template: `%s | ${siteConfig.name}`,
-	},
+	title: { default: siteConfig.name, template: `%s | ${siteConfig.name}` },
 	description: siteConfig.description,
-	icons: [
-		{
-			url: '/icon.svg',
-			href: '/icon.svg',
-		},
-	],
+	icons: [{ url: '/svg/icon.svg', href: '/svg/icon.svg' }],
 }
 
 export default function RootLayout({ children }: PropsWithChildren) {

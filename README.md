@@ -1,28 +1,49 @@
-This project contains the following technologies:
-- React 18
-- TypeScript
-- Next 14 (framework)
-- Prisma 5 (ORM for DB)
-- Clerk (Authentication and User Management)
-- React TanStack Query (data fetching and state management)
-- usehooks-ts (react hook library)
-- Unsplash (photos)
+This project contains the following technologies
+
+Animation and Interaction:
 - @hello-pangea/dnd (drag and drop)
-- Tailwind CSS (stylization)
-- shadcn/ui (stylization)
-- Lucide React (stylization)
-- Sonner (stylization)
-- PostCSS (transforms CSS code to AST)
-- Date-fns (date/time manipulation)
-- Stripe (payment service provider)
+
+Authentication and User Management:
+- Clerk (Authentication and User Management)
+
+Core Technologies:
+- React 19
+- TypeScript
+- Next 15 (framework)
+
+Data Fetching and State Management:
+- Prisma 6 (ORM for DB)
+- React Query (TanStack Query) (data fetching and state management)
 - Zustand (state management)
+
+Form and Validation:
 - Zod (first schema validation)
-- Lodash (library delivering modularity, performance & extras)
+
+Image Handling and Optimization:
+- Unsplash (photos)
+
+Middleware and Server Utilities:
 - Concurrently (all projects are running in tandem)
+
+Payment:
+- Stripe (payment service provider)
+
+Styling and UI Frameworks:
+- Lucide React (stylization)
+- shadcn/ui (stylization)
+- Tailwind CSS (stylization)
+- Sonner (stylization)
+
+Utilities and Libraries:
+- Date-fns (date/time manipulation)
+- Knip (code analyzer and declutter)
+- Lodash (library delivering modularity, performance & extras)
+- PostCSS (transforms CSS code to AST)
 
 
 To run the client and server via concurrently:
 terminal powershell -> npm run all
+terminal powershell -> npm run knip
 
 terminal powershell -> npx prisma migrate reset
 terminal powershell -> npx prisma db push

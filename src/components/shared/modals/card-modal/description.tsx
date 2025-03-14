@@ -3,9 +3,9 @@
 import { toast } from 'sonner'
 import { AlignLeft } from 'lucide-react'
 import { useParams } from 'next/navigation'
-import { ElementRef, useRef, useState } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
 import { useEventListener, useOnClickOutside } from 'usehooks-ts'
+import { ComponentRef, RefObject, useRef, useState } from 'react'
 
 import { CardWithList } from '@/types'
 import { useAction } from '@/hooks/use-action'
@@ -25,13 +25,9 @@ export const Description = ({ data }: Props) => {
 
 	const { execute, fieldErrors } = useAction(updateCard, {
 		onSuccess: (data) => {
-			queryClient.invalidateQueries({
-				queryKey: ['card', data.id],
-			})
+			queryClient.invalidateQueries({ queryKey: ['card', data.id] })
 
-			queryClient.invalidateQueries({
-				queryKey: ['card-logs', data.id],
-			})
+			queryClient.invalidateQueries({ queryKey: ['card-logs', data.id] })
 
 			toast.success(`Card '${data.title}' updated`)
 			disableEditing()
@@ -42,8 +38,8 @@ export const Description = ({ data }: Props) => {
 		},
 	})
 
-	const formRef = useRef<ElementRef<'form'>>(null)
-	const textareaRef = useRef<ElementRef<'textarea'>>(null)
+	const formRef = useRef<ComponentRef<'form'>>(null)
+	const textareaRef = useRef<ComponentRef<'textarea'>>(null)
 
 	const [isEditing, setIsEditing] = useState(false)
 
@@ -76,7 +72,7 @@ export const Description = ({ data }: Props) => {
 	}
 
 	useEventListener('keydown', onKeyDown)
-	useOnClickOutside(formRef, disableEditing)
+	useOnClickOutside(formRef as RefObject<HTMLElement>, disableEditing)
 
 	return (
 		<div className="flex items-start gap-x-3 w-full">

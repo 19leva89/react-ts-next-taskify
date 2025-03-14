@@ -1,32 +1,23 @@
-import { NextRequest, NextResponse } from 'next/server'
 import { auth } from '@clerk/nextjs/server'
+import { NextRequest, NextResponse } from 'next/server'
 
 import { prisma } from '@/lib/db'
 
-export async function GET(req: NextRequest, { params }: { params: { cardId: string } }) {
+interface Props {
+	params: Promise<{ cardId: string }>
+}
+
+export async function GET(req: NextRequest, { params }: Props) {
 	try {
-		const { userId, orgId } = auth()
+		const { userId, orgId } = await auth()
 
 		if (!userId || !orgId) {
 			return new NextResponse('Unauthorized', { status: 401 })
 		}
 
 		const card = await prisma.card.findUnique({
-			where: {
-				id: params.cardId,
-				list: {
-					board: {
-						orgId,
-					},
-				},
-			},
-			include: {
-				list: {
-					select: {
-						title: true,
-					},
-				},
-			},
+			where: { id: (await params).cardId, list: { board: { orgId } } },
+			include: { list: { select: { title: true } } },
 		})
 
 		return NextResponse.json(card)

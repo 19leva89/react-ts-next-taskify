@@ -5,11 +5,9 @@ import { PropsWithChildren } from 'react'
 import { OrgControl } from './_components/org-control'
 
 export const generateMetadata = async () => {
-	const { orgSlug } = auth()
+	const { orgSlug } = await auth()
 
-	return {
-		title: startCase(orgSlug || 'organization'),
-	}
+	return { title: startCase(orgSlug || 'organization') }
 }
 
 const OrganizationIdLayout = ({ children }: PropsWithChildren) => {

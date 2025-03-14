@@ -12,12 +12,10 @@ import { CopyCard } from './schema'
 import { InputType, ReturnType } from './types'
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-	const { userId, orgId } = auth()
+	const { userId, orgId } = await auth()
 
 	if (!userId || !orgId) {
-		return {
-			error: 'Unauthorized',
-		}
+		return { error: 'Unauthorized' }
 	}
 
 	const { id, boardId } = data
@@ -25,16 +23,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 	let card
 
 	try {
-		const cardToCopy = await prisma.card.findUnique({
-			where: {
-				id,
-				list: {
-					board: {
-						orgId,
-					},
-				},
-			},
-		})
+		const cardToCopy = await prisma.card.findUnique({ where: { id, list: { board: { orgId } } } })
 
 		if (!cardToCopy) {
 			return { error: 'Card not found' }
@@ -64,9 +53,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 			entityTitle: card.title,
 		})
 	} catch (error) {
-		return {
-			error: 'Failed to copy',
-		}
+		return { error: 'Failed to copy' }
 	}
 
 	revalidatePath(`/board/${boardId}`)

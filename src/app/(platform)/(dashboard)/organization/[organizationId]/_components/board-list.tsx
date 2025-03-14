@@ -12,20 +12,13 @@ import { checkSubscription } from '@/lib/subscription'
 import { FormPopover } from '@/components/shared/form/form-popover'
 
 export const BoardList = async () => {
-	const { orgId } = auth()
+	const { orgId } = await auth()
 
 	if (!orgId) {
 		return redirect('/select-org')
 	}
 
-	const boards = await prisma.board.findMany({
-		where: {
-			orgId,
-		},
-		orderBy: {
-			createdAt: 'desc',
-		},
-	})
+	const boards = await prisma.board.findMany({ where: { orgId }, orderBy: { createdAt: 'desc' } })
 
 	const availableCount = (await getAvailableCount()) ?? 0
 	const isPro = await checkSubscription()

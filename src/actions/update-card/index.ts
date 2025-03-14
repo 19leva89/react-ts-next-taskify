@@ -12,12 +12,10 @@ import { UpdateCard } from './schema'
 import { InputType, ReturnType } from './types'
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-	const { userId, orgId } = auth()
+	const { userId, orgId } = await auth()
 
 	if (!userId || !orgId) {
-		return {
-			error: 'Unauthorized',
-		}
+		return { error: 'Unauthorized' }
 	}
 
 	const { id, boardId, ...values } = data
@@ -25,17 +23,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 	let card
 
 	try {
-		card = await prisma.card.update({
-			where: {
-				id,
-				list: {
-					board: {
-						orgId,
-					},
-				},
-			},
-			data: { ...values },
-		})
+		card = await prisma.card.update({ where: { id, list: { board: { orgId } } }, data: { ...values } })
 
 		await createAuditLog({
 			action: ACTION.UPDATE,
@@ -44,9 +32,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 			entityTitle: card.title,
 		})
 	} catch (error) {
-		return {
-			error: 'Failed to update',
-		}
+		return { error: 'Failed to update' }
 	}
 
 	revalidatePath(`/board/${boardId}`)

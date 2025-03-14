@@ -12,12 +12,10 @@ import { DeleteList } from './schema'
 import { InputType, ReturnType } from './types'
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-	const { userId, orgId } = auth()
+	const { userId, orgId } = await auth()
 
 	if (!userId || !orgId) {
-		return {
-			error: 'Unauthorized',
-		}
+		return { error: 'Unauthorized' }
 	}
 
 	const { id, boardId } = data
@@ -25,15 +23,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 	let list
 
 	try {
-		list = await prisma.list.delete({
-			where: {
-				id,
-				boardId,
-				board: {
-					orgId,
-				},
-			},
-		})
+		list = await prisma.list.delete({ where: { id, boardId, board: { orgId } } })
 
 		await createAuditLog({
 			action: ACTION.DELETE,
@@ -42,9 +32,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 			entityTitle: list.title,
 		})
 	} catch (error) {
-		return {
-			error: 'Failed to delete',
-		}
+		return { error: 'Failed to delete' }
 	}
 
 	revalidatePath(`/board/${boardId}`)

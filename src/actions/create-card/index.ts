@@ -12,12 +12,10 @@ import { CreateCard } from './schema'
 import { InputType, ReturnType } from './types'
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-	const { userId, orgId } = auth()
+	const { userId, orgId } = await auth()
 
 	if (!userId || !orgId) {
-		return {
-			error: 'Unauthorized',
-		}
+		return { error: 'Unauthorized' }
 	}
 
 	const { title, boardId, listId } = data
@@ -25,19 +23,10 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 	let card
 
 	try {
-		const list = await prisma.list.findUnique({
-			where: {
-				id: listId,
-				board: {
-					orgId,
-				},
-			},
-		})
+		const list = await prisma.list.findUnique({ where: { id: listId, board: { orgId } } })
 
 		if (!list) {
-			return {
-				error: 'List not found',
-			}
+			return { error: 'List not found' }
 		}
 
 		const lastCard = await prisma.card.findFirst({
@@ -48,13 +37,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 
 		const newOrder = lastCard ? lastCard.order + 1 : 1
 
-		card = await prisma.card.create({
-			data: {
-				title,
-				listId,
-				order: newOrder,
-			},
-		})
+		card = await prisma.card.create({ data: { title, listId, order: newOrder } })
 
 		await createAuditLog({
 			action: ACTION.CREATE,
@@ -63,9 +46,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 			entityTitle: card.title,
 		})
 	} catch (error) {
-		return {
-			error: 'Failed to create',
-		}
+		return { error: 'Failed to create' }
 	}
 
 	revalidatePath(`/board/${boardId}`)

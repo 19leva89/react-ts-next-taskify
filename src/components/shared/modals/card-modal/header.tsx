@@ -3,8 +3,8 @@
 import { toast } from 'sonner'
 import { Layout } from 'lucide-react'
 import { useParams } from 'next/navigation'
-import { ElementRef, useRef, useState } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
+import { ComponentRef, useRef, useState } from 'react'
 
 import { CardWithList } from '@/types'
 import { Skeleton } from '@/components/ui'
@@ -20,19 +20,15 @@ export const Header = ({ data }: Props) => {
 	const params = useParams()
 	const queryClient = useQueryClient()
 
-	const inputRef = useRef<ElementRef<'input'>>(null)
+	const inputRef = useRef<ComponentRef<'input'>>(null)
 
 	const [title, setTitle] = useState(data.title)
 
 	const { execute } = useAction(updateCard, {
 		onSuccess: (data) => {
-			queryClient.invalidateQueries({
-				queryKey: ['card', data.id],
-			})
+			queryClient.invalidateQueries({ queryKey: ['card', data.id] })
 
-			queryClient.invalidateQueries({
-				queryKey: ['card-logs', data.id],
-			})
+			queryClient.invalidateQueries({ queryKey: ['card-logs', data.id] })
 
 			toast.success(`Renamed to '${data.title}'`)
 			setTitle(data.title)

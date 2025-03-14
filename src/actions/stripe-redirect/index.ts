@@ -12,13 +12,11 @@ import { StripeRedirect } from './schema'
 import { ReturnType } from './types'
 
 const handler = async (): Promise<ReturnType> => {
-	const { userId, orgId } = auth()
+	const { userId, orgId } = await auth()
 	const user = await currentUser()
 
 	if (!userId || !orgId || !user) {
-		return {
-			error: 'Unauthorized',
-		}
+		return { error: 'Unauthorized' }
 	}
 
 	const settingsUrl = absoluteUrl(`/organization/${orgId}`)
@@ -26,11 +24,7 @@ const handler = async (): Promise<ReturnType> => {
 	let url = ''
 
 	try {
-		const orgSubscription = await prisma.orgSubscription.findUnique({
-			where: {
-				orgId,
-			},
-		})
+		const orgSubscription = await prisma.orgSubscription.findUnique({ where: { orgId } })
 
 		if (orgSubscription && orgSubscription.stripeCustomerId) {
 			const stripeSession = await stripe.billingPortal.sessions.create({
@@ -56,24 +50,18 @@ const handler = async (): Promise<ReturnType> => {
 								description: 'Unlimited boards for your organization',
 							},
 							unit_amount: 2000,
-							recurring: {
-								interval: 'month',
-							},
+							recurring: { interval: 'month' },
 						},
 						quantity: 1,
 					},
 				],
-				metadata: {
-					orgId,
-				},
+				metadata: { orgId },
 			})
 
 			url = stripeSession.url || ''
 		}
 	} catch (error) {
-		return {
-			error: 'Something went wrong!',
-		}
+		return { error: 'Something went wrong!' }
 	}
 
 	revalidatePath(`/organization/${orgId}`)
