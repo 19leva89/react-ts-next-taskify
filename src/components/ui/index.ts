@@ -4,7 +4,7 @@ export { Button } from './button'
 export { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from './dialog'
 export { Input } from './input'
 export { Label } from './label'
-export { Popover, PopoverTrigger, PopoverContent } from './popover'
+export { Popover, PopoverTrigger, PopoverContent, PopoverClose } from './popover'
 export { Separator } from './separator'
 export {
 	Sheet,

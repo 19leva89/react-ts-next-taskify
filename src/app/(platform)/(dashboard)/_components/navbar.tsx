@@ -1,6 +1,6 @@
 'use client'
 
-import { Plus } from 'lucide-react'
+import { PlusIcon } from 'lucide-react'
 import { OrganizationSwitcher, UserButton } from '@clerk/nextjs'
 
 import { Button } from '@/components/ui'
@@ -27,7 +27,7 @@ export const Navbar = () => {
 
 				<FormPopover>
 					<Button variant="primary" size="sm" className="rounded-sm block md:hidden">
-						<Plus className="h-4 w-4" />
+						<PlusIcon className="h-4 w-4" />
 					</Button>
 				</FormPopover>
 			</div>

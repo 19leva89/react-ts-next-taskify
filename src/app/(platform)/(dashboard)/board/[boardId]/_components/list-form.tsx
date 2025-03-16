@@ -1,7 +1,7 @@
 'use client'
 
 import { toast } from 'sonner'
-import { Plus, X } from 'lucide-react'
+import { PlusIcon, XIcon } from 'lucide-react'
 import { useParams, useRouter } from 'next/navigation'
 import { useEventListener, useOnClickOutside } from 'usehooks-ts'
 import { ComponentRef, RefObject, useRef, useState } from 'react'
@@ -85,7 +85,7 @@ export const ListForm = () => {
 						<FormSubmit>Add list</FormSubmit>
 
 						<Button onClick={disableEditing} size="sm" variant="ghost">
-							<X className="h-5 w-5" />
+							<XIcon className="h-5 w-5" />
 						</Button>
 					</div>
 				</form>
@@ -99,7 +99,7 @@ export const ListForm = () => {
 				onClick={enableEditing}
 				className="w-full rounded-md bg-white/80 hover:bg-white/50 transition p-3 flex items-center font-medium text-sm"
 			>
-				<Plus className="h-4 w-4 mr-2" />
+				<PlusIcon className="h-4 w-4 mr-2" />
 				Add a list
 			</button>
 		</ListWrapper>

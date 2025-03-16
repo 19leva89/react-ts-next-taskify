@@ -1,7 +1,7 @@
 'use client'
 
 import { toast } from 'sonner'
-import { Plus, X } from 'lucide-react'
+import { PlusIcon, XIcon } from 'lucide-react'
 import { useParams } from 'next/navigation'
 import { useEventListener, useOnClickOutside } from 'usehooks-ts'
 import { ComponentRef, forwardRef, KeyboardEventHandler, RefObject, useRef } from 'react'
@@ -79,8 +79,8 @@ export const CardForm = forwardRef<HTMLTextAreaElement, Props>(
 					<div className="flex items-center gap-x-1">
 						<FormSubmit>Add card</FormSubmit>
 
-						<Button onClick={disableEditing} size="sm" variant="ghost">
-							<X className="h-5 w-5" />
+						<Button onClick={disableEditing} variant="ghost" size="sm">
+							<XIcon className="h-5 w-5" />
 						</Button>
 					</div>
 				</form>
@@ -95,7 +95,7 @@ export const CardForm = forwardRef<HTMLTextAreaElement, Props>(
 					size="sm"
 					variant="ghost"
 				>
-					<Plus className="h-4 w-4 mr-2" />
+					<PlusIcon className="h-4 w-4 mr-2" />
 					Add a card
 				</Button>
 			</div>

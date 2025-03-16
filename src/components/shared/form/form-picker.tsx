@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import { useFormStatus } from 'react-dom'
 import { useEffect, useState } from 'react'
-import { Check, Loader2 } from 'lucide-react'
+import { CheckIcon, Loader2Icon } from 'lucide-react'
 
 import { cn } from '@/lib'
 import { unsplash } from '@/lib/unsplash'
@@ -64,7 +64,7 @@ export const FormPicker = ({ id, errors }: Props) => {
 	if (isLoading) {
 		return (
 			<div className="p-6 flex items-center justify-center">
-				<Loader2 className="h-6 w-6 text-sky-700 animate-spin" />
+				<Loader2Icon className="h-6 w-6 text-sky-700 animate-spin" />
 			</div>
 		)
 	}
@@ -105,7 +105,7 @@ export const FormPicker = ({ id, errors }: Props) => {
 
 						{selectedImageId === image.id && (
 							<div className="absolute inset-y-0 h-full w-full bg-black/30 flex items-center justify-center">
-								<Check className="h-4 w-4 text-white" />
+								<CheckIcon className="h-4 w-4 text-white" />
 							</div>
 						)}
 

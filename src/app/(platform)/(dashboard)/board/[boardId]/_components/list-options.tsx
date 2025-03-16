@@ -2,14 +2,20 @@
 
 import { toast } from 'sonner'
 import { List } from '@prisma/client'
-import { ComponentRef, useRef } from 'react'
-import { MoreHorizontal, X } from 'lucide-react'
+import { MoreHorizontalIcon, XIcon } from 'lucide-react'
 
+import {
+	Button,
+	Popover,
+	PopoverClose,
+	PopoverContent,
+	PopoverTrigger,
+	Separator,
+} from '@/components/ui'
 import { useAction } from '@/hooks/use-action'
 import { copyList } from '@/actions/copy-list'
 import { deleteList } from '@/actions/delete-list'
 import { FormSubmit } from '@/components/shared/form/form-submit'
-import { Button, Popover, PopoverContent, PopoverTrigger, Separator } from '@/components/ui'
 
 interface Props {
 	data: List
@@ -17,12 +23,9 @@ interface Props {
 }
 
 export const ListOptions = ({ data, onAddCard }: Props) => {
-	const closeRef = useRef<ComponentRef<'button'>>(null)
-
 	const { execute: executeDelete } = useAction(deleteList, {
 		onSuccess: (data) => {
 			toast.success(`List '${data.title}' deleted!`)
-			closeRef.current?.click()
 		},
 
 		onError: (error) => {
@@ -33,7 +36,6 @@ export const ListOptions = ({ data, onAddCard }: Props) => {
 	const { execute: executeCopy } = useAction(copyList, {
 		onSuccess: (data) => {
 			toast.success(`List '${data.title}' copied!`)
-			closeRef.current?.click()
 		},
 
 		onError: (error) => {
@@ -59,20 +61,22 @@ export const ListOptions = ({ data, onAddCard }: Props) => {
 		<Popover>
 			<PopoverTrigger asChild>
 				<Button className="h-auto w-auto p-2" variant="ghost">
-					<MoreHorizontal className="h-4 w-4" />
+					<MoreHorizontalIcon className="h-4 w-4" />
 				</Button>
 			</PopoverTrigger>
 
 			<PopoverContent className="px-0 pt-3 pb-3" side="bottom" align="start">
 				<div className="text-sm font-medium text-center text-neutral-600 pb-4">List actions</div>
 
-				<Button
-					variant="ghost"
-					ref={closeRef}
-					className="h-auto w-auto p-2 absolute top-2 right-2 text-neutral-600"
-				>
-					<X className="h-4 w-4" />
-				</Button>
+				<PopoverClose asChild>
+					<Button
+						variant="ghost"
+						size="icon"
+						className="h-auto w-auto p-2 absolute top-2 right-2 text-neutral-600"
+					>
+						<XIcon className="h-4 w-4" />
+					</Button>
+				</PopoverClose>
 
 				<Button
 					variant="ghost"

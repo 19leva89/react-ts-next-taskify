@@ -1,8 +1,8 @@
 'use client'
 
 import { toast } from 'sonner'
-import { Copy, Trash } from 'lucide-react'
 import { useParams } from 'next/navigation'
+import { CopyIcon, TrashIcon } from 'lucide-react'
 
 import { CardWithList } from '@/types'
 import { copyCard } from '@/actions/copy-card'
@@ -64,7 +64,7 @@ export const Actions = ({ data }: Props) => {
 				className="w-full justify-start"
 				size="inline"
 			>
-				<Copy className="h-4 w-4 mr-2" />
+				<CopyIcon className="h-4 w-4 mr-2" />
 				Copy
 			</Button>
 
@@ -75,7 +75,7 @@ export const Actions = ({ data }: Props) => {
 				className="w-full justify-start"
 				size="inline"
 			>
-				<Trash className="h-4 w-4 mr-2" />
+				<TrashIcon className="h-4 w-4 mr-2" />
 				Delete
 			</Button>
 		</div>

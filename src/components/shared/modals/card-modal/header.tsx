@@ -1,7 +1,7 @@
 'use client'
 
 import { toast } from 'sonner'
-import { Layout } from 'lucide-react'
+import { LayoutIcon } from 'lucide-react'
 import { useParams } from 'next/navigation'
 import { useQueryClient } from '@tanstack/react-query'
 import { ComponentRef, useRef, useState } from 'react'
@@ -56,7 +56,7 @@ export const Header = ({ data }: Props) => {
 
 	return (
 		<div className="flex items-start gap-x-3 mb-6 w-full">
-			<Layout className="h-5 w-5 mt-1 text-neutral-700" />
+			<LayoutIcon className="h-5 w-5 mt-1 text-neutral-700" />
 
 			<div className="w-full">
 				<form action={onSubmit}>

@@ -1,9 +1,8 @@
 'use client'
 
-import { usePathname, useRouter } from 'next/navigation'
-
 import Image from 'next/image'
-import { Activity, CreditCard, Layout, Settings } from 'lucide-react'
+import { usePathname, useRouter } from 'next/navigation'
+import { ActivityIcon, CreditCardIcon, LayoutIcon, SettingsIcon } from 'lucide-react'
 
 import { cn } from '@/lib'
 
@@ -30,22 +29,22 @@ export const NavItem = ({ isActive, isExpanded, organization, onExpand }: Props)
 	const routes = [
 		{
 			label: 'Boards',
-			icon: <Layout className="h-4 w-4 mr-2" />,
+			icon: <LayoutIcon className="h-4 w-4 mr-2" />,
 			href: `/organization/${organization.id}`,
 		},
 		{
 			label: 'Activity',
-			icon: <Activity className="h-4 w-4 mr-2" />,
+			icon: <ActivityIcon className="h-4 w-4 mr-2" />,
 			href: `/organization/${organization.id}/activity`,
 		},
 		{
 			label: 'Settings',
-			icon: <Settings className="h-4 w-4 mr-2" />,
+			icon: <SettingsIcon className="h-4 w-4 mr-2" />,
 			href: `/organization/${organization.id}/settings`,
 		},
 		{
 			label: 'Billing',
-			icon: <CreditCard className="h-4 w-4 mr-2" />,
+			icon: <CreditCardIcon className="h-4 w-4 mr-2" />,
 			href: `/organization/${organization.id}/billing`,
 		},
 	]

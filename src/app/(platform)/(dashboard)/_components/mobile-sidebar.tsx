@@ -1,6 +1,6 @@
 'use client'
 
-import { Menu } from 'lucide-react'
+import { MenuIcon } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
@@ -32,7 +32,7 @@ export const MobileSidebar = () => {
 	return (
 		<>
 			<Button onClick={onOpen} className="block md:hidden mr-2" variant="ghost" size="sm">
-				<Menu className="h-4 w-4" />
+				<MenuIcon className="h-4 w-4" />
 			</Button>
 
 			<Sheet open={isOpen} onOpenChange={onClose}>

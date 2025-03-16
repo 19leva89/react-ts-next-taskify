@@ -1,8 +1,8 @@
 'use client'
 
 import { toast } from 'sonner'
-import { AlignLeft } from 'lucide-react'
 import { useParams } from 'next/navigation'
+import { AlignLeftIcon } from 'lucide-react'
 import { useQueryClient } from '@tanstack/react-query'
 import { useEventListener, useOnClickOutside } from 'usehooks-ts'
 import { ComponentRef, RefObject, useRef, useState } from 'react'
@@ -76,7 +76,7 @@ export const Description = ({ data }: Props) => {
 
 	return (
 		<div className="flex items-start gap-x-3 w-full">
-			<AlignLeft className="h-5 w-5 mt-0.5 text-neutral-700" />
+			<AlignLeftIcon className="h-5 w-5 mt-0.5 text-neutral-700" />
 
 			<div className="w-full">
 				<p className="font-semibold text-neutral-700 mb-2">Description</p>
