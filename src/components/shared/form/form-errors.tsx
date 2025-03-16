@@ -1,6 +1,6 @@
 'use client'
 
-import {  XCircleIcon } from 'lucide-react'
+import { XCircleIcon } from 'lucide-react'
 
 interface Props {
 	id: string
