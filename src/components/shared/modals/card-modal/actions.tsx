@@ -58,22 +58,22 @@ export const Actions = ({ data }: Props) => {
 			<p className="text-xs font-semibold">Actions</p>
 
 			<Button
+				variant="gray"
+				size="inline"
 				onClick={onCopy}
 				disabled={isLoadingCopy}
-				variant="gray"
-				className="w-full justify-start"
-				size="inline"
+				className="w-full justify-start transition-colors ease-in-out duration-300"
 			>
 				<CopyIcon className="h-4 w-4 mr-2" />
 				Copy
 			</Button>
 
 			<Button
+				variant="gray"
+				size="inline"
 				onClick={onDelete}
 				disabled={isLoadingDelete}
-				variant="gray"
-				className="w-full justify-start"
-				size="inline"
+				className="w-full justify-start transition-colors ease-in-out duration-300"
 			>
 				<TrashIcon className="h-4 w-4 mr-2" />
 				Delete

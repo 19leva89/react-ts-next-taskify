@@ -25,7 +25,11 @@ export const BoardOptions = ({ id }: Props) => {
 	return (
 		<Popover>
 			<PopoverTrigger asChild>
-				<Button className="h-auto w-auto p-2" variant="transparent" size="icon">
+				<Button
+					variant="transparent"
+					size="icon"
+					className="h-auto w-auto p-2 transition-colors ease-in-out duration-300"
+				>
 					<MoreHorizontalIcon className="h-4 w-4" />
 				</Button>
 			</PopoverTrigger>
@@ -37,7 +41,7 @@ export const BoardOptions = ({ id }: Props) => {
 					<Button
 						variant="ghost"
 						size="icon"
-						className="h-auto w-auto p-2 absolute top-2 right-2 text-neutral-600"
+						className="h-auto w-auto p-2 absolute top-2 right-2 text-neutral-600 transition-colors ease-in-out duration-300"
 					>
 						<XIcon className="h-4 w-4" />
 					</Button>
@@ -47,7 +51,7 @@ export const BoardOptions = ({ id }: Props) => {
 					variant="ghost"
 					onClick={onDelete}
 					disabled={isLoading}
-					className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
+					className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm transition-colors ease-in-out duration-300"
 				>
 					Delete this board
 				</Button>

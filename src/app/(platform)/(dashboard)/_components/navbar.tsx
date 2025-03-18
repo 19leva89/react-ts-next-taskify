@@ -20,13 +20,21 @@ export const Navbar = () => {
 				</div>
 
 				<FormPopover align="start" side="bottom" sideOffset={18}>
-					<Button variant="primary" size="sm" className="rounded-sm hidden md:block h-auto py-1.5 px-2">
+					<Button
+						variant="primary"
+						size="sm"
+						className="rounded-sm hidden md:block h-auto py-1.5 px-2 transition-colors ease-in-out duration-300"
+					>
 						Create
 					</Button>
 				</FormPopover>
 
 				<FormPopover>
-					<Button variant="primary" size="sm" className="rounded-sm block md:hidden">
+					<Button
+						variant="primary"
+						size="sm"
+						className="rounded-sm block md:hidden transition-colors ease-in-out duration-300"
+					>
 						<PlusIcon className="h-4 w-4" />
 					</Button>
 				</FormPopover>

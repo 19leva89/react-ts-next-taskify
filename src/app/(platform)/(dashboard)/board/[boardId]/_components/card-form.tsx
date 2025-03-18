@@ -79,7 +79,12 @@ export const CardForm = forwardRef<HTMLTextAreaElement, Props>(
 					<div className="flex items-center gap-x-1">
 						<FormSubmit>Add card</FormSubmit>
 
-						<Button onClick={disableEditing} variant="ghost" size="sm">
+						<Button
+							variant="ghost"
+							size="sm"
+							onClick={disableEditing}
+							className="transition-colors ease-in-out duration-300"
+						>
 							<XIcon className="h-5 w-5" />
 						</Button>
 					</div>
@@ -90,10 +95,10 @@ export const CardForm = forwardRef<HTMLTextAreaElement, Props>(
 		return (
 			<div className="pt-2 px-2">
 				<Button
-					onClick={enableEditing}
-					className="h-auto px-2 py-1.5 w-full justify-start text-muted-foreground text-sm"
-					size="sm"
 					variant="ghost"
+					size="sm"
+					onClick={enableEditing}
+					className="h-auto px-2 py-1.5 w-full justify-start text-muted-foreground text-sm transition-colors ease-in-out duration-300"
 				>
 					<PlusIcon className="h-4 w-4 mr-2" />
 					Add a card

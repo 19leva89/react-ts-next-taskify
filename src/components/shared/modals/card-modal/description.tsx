@@ -95,7 +95,13 @@ export const Description = ({ data }: Props) => {
 						<div className="flex items-center gap-x-2">
 							<FormSubmit>Save</FormSubmit>
 
-							<Button type="button" onClick={disableEditing} size="sm" variant="ghost">
+							<Button
+								variant="ghost"
+								size="sm"
+								type="button"
+								onClick={disableEditing}
+								className="transition-colors ease-in-out duration-300"
+							>
 								Cancel
 							</Button>
 						</div>

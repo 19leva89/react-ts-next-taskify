@@ -10,11 +10,16 @@ export const Navbar = () => {
 				<Logo />
 
 				<div className="space-x-4 md:block md:w-auto flex items-center justify-between w-full">
-					<Button size="sm" variant="outline" asChild>
+					<Button
+						size="sm"
+						variant="outline"
+						className="transition-colors ease-in-out duration-300"
+						asChild
+					>
 						<Link href="/sign-in">Login</Link>
 					</Button>
 
-					<Button size="sm" asChild>
+					<Button size="sm" className="transition-colors ease-in-out duration-300" asChild>
 						<Link href="/sign-up">Get Taskify for free</Link>
 					</Button>
 				</div>

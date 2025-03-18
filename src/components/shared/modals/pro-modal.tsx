@@ -46,7 +46,12 @@ export const ProModal = () => {
 						</ul>
 					</div>
 
-					<Button disabled={isLoading} onClick={onClick} className="w-full" variant="primary">
+					<Button
+						variant="primary"
+						onClick={onClick}
+						disabled={isLoading}
+						className="w-full transition-colors ease-in-out duration-300"
+					>
 						Upgrade
 					</Button>
 				</div>

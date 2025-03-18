@@ -1,7 +1,7 @@
-import { Toaster } from 'sonner'
 import { PropsWithChildren } from 'react'
 import { ClerkProvider } from '@clerk/nextjs'
 
+import { Toaster } from '@/components/ui'
 import { ModalProvider } from '@/components/shared/providers/modal-provider'
 import { QueryProvider } from '@/components/shared/providers/query-provider'
 

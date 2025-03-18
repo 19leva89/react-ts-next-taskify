@@ -33,7 +33,7 @@ const MarketingPage = () => {
 				office, the way your team works is unique - accomplish it all with Taskify
 			</div>
 
-			<Button className="mt-6" size="lg" asChild>
+			<Button className="mt-6 transition-colors ease-in-out duration-300" size="lg" asChild>
 				<Link href="/sign-up">Get Taskify for free</Link>
 			</Button>
 		</div>

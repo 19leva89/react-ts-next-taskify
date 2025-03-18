@@ -84,7 +84,12 @@ export const ListForm = () => {
 					<div className="flex items-center gap-x-1">
 						<FormSubmit>Add list</FormSubmit>
 
-						<Button onClick={disableEditing} size="sm" variant="ghost">
+						<Button
+							variant="ghost"
+							size="sm"
+							onClick={disableEditing}
+							className="transition-colors ease-in-out duration-300"
+						>
 							<XIcon className="h-5 w-5" />
 						</Button>
 					</div>
@@ -97,7 +102,7 @@ export const ListForm = () => {
 		<ListWrapper>
 			<button
 				onClick={enableEditing}
-				className="w-full rounded-md bg-white/80 hover:bg-white/50 transition p-3 flex items-center font-medium text-sm"
+				className="w-full rounded-md bg-white/80 hover:bg-white/50 transition p-3 flex items-center font-medium text-sm cursor-pointer"
 			>
 				<PlusIcon className="h-4 w-4 mr-2" />
 				Add a list

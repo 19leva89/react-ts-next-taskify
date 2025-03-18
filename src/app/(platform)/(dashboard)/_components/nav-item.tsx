@@ -81,13 +81,13 @@ export const NavItem = ({ isActive, isExpanded, organization, onExpand }: Props)
 				{routes.map((route) => (
 					<Button
 						key={route.href}
+						variant="ghost"
 						size="sm"
 						onClick={() => onClick(route.href)}
 						className={cn(
-							'w-full font-normal justify-start pl-10 mb-1',
+							'w-full font-normal justify-start pl-10 mb-1 transition-colors ease-in-out duration-300',
 							pathname === route.href && 'bg-sky-500/10 text-sky-700',
 						)}
-						variant="ghost"
 					>
 						{route.icon}
 						{route.label}

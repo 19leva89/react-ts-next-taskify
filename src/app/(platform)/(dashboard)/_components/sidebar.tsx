@@ -63,7 +63,13 @@ export const Sidebar = ({ storageKey = 't-sidebar-state' }: Props) => {
 			<div className="font-medium text-xs flex items-center mb-1">
 				<span className="pl-4">Workspaces</span>
 
-				<Button asChild type="button" size="icon" variant="ghost" className="ml-auto">
+				<Button
+					type="button"
+					variant="ghost"
+					size="icon"
+					className="ml-auto transition-colors ease-in-out duration-300"
+					asChild
+				>
 					<Link href="/select-org">
 						<PlusIcon className="h-4 w-4" />
 					</Link>

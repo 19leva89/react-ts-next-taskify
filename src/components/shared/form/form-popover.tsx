@@ -58,7 +58,7 @@ export const FormPopover = ({ children, side = 'bottom', align, sideOffset = 0 }
 					<Button
 						variant="ghost"
 						size="icon"
-						className="h-auto w-auto p-2 absolute top-2 right-2 text-neutral-600"
+						className="h-auto w-auto p-2 absolute top-2 right-2 text-neutral-600 transition-colors ease-in-out duration-300"
 					>
 						<XIcon className="h-4 w-4" />
 					</Button>
