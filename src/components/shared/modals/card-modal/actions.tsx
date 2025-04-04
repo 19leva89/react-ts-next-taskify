@@ -69,7 +69,7 @@ export const Actions = ({ data }: Props) => {
 			</Button>
 
 			<Button
-				variant="gray"
+				variant="destructive"
 				size="inline"
 				onClick={onDelete}
 				disabled={isLoadingDelete}
