@@ -93,8 +93,6 @@ export const Description = ({ data }: Props) => {
 						/>
 
 						<div className="flex items-center justify-end gap-x-2">
-							<FormSubmit>Save</FormSubmit>
-
 							<Button
 								variant="default"
 								size="sm"
@@ -104,6 +102,8 @@ export const Description = ({ data }: Props) => {
 							>
 								Cancel
 							</Button>
+
+							<FormSubmit>Save</FormSubmit>
 						</div>
 					</form>
 				) : (
