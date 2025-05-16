@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 
-import { Footer } from './_components/footer'
-import { Navbar } from './_components/navbar'
+import { Footer } from '@/app/(marketing)/_components/footer'
+import { Navbar } from '@/app/(marketing)/_components/navbar'
 
 const MarketingLayout = ({ children }: { children: ReactNode }) => {
 	return (

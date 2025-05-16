@@ -11,7 +11,7 @@ interface Props {
 export const ActivityItem = ({ data }: Props) => {
 	return (
 		<li className="flex items-center gap-x-2">
-			<Avatar className="h-8 w-8">
+			<Avatar className="size-8">
 				<AvatarImage src={data.userImage} />
 			</Avatar>
 

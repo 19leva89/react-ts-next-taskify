@@ -60,8 +60,8 @@ export const ListOptions = ({ data, onAddCard }: Props) => {
 	return (
 		<Popover>
 			<PopoverTrigger asChild>
-				<Button variant="ghost" className="h-auto w-auto p-2 transition-colors ease-in-out duration-300">
-					<MoreHorizontalIcon className="h-4 w-4" />
+				<Button variant="ghost" className="size-auto p-2 transition-colors ease-in-out duration-300">
+					<MoreHorizontalIcon className="size-4" />
 				</Button>
 			</PopoverTrigger>
 
@@ -72,9 +72,9 @@ export const ListOptions = ({ data, onAddCard }: Props) => {
 					<Button
 						variant="ghost"
 						size="icon"
-						className="h-auto w-auto p-2 absolute top-2 right-2 text-neutral-600 transition-colors ease-in-out duration-300"
+						className="size-auto p-2 absolute top-2 right-2 text-neutral-600 transition-colors ease-in-out duration-300"
 					>
-						<XIcon className="h-4 w-4" />
+						<XIcon className="size-4" />
 					</Button>
 				</PopoverClose>
 

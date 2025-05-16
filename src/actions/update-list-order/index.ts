@@ -5,9 +5,8 @@ import { revalidatePath } from 'next/cache'
 
 import { prisma } from '@/lib/db'
 import { createSafeAction } from '@/lib/create-safe-action'
-
-import { UpdateListOrder } from './schema'
-import { InputType, ReturnType } from './types'
+import { UpdateListOrder } from '@/actions/update-list-order/schema'
+import { InputType, ReturnType } from '@/actions/update-list-order/types'
 
 const handler = async (data: InputType): Promise<ReturnType> => {
 	const { userId, orgId } = await auth()

@@ -64,7 +64,7 @@ export const Actions = ({ data }: Props) => {
 				disabled={isLoadingCopy}
 				className="w-full justify-start transition-colors ease-in-out duration-300"
 			>
-				<CopyIcon className="h-4 w-4 mr-2" />
+				<CopyIcon className="size-4 mr-2" />
 				Copy
 			</Button>
 
@@ -75,7 +75,7 @@ export const Actions = ({ data }: Props) => {
 				disabled={isLoadingDelete}
 				className="w-full justify-start transition-colors ease-in-out duration-300"
 			>
-				<TrashIcon className="h-4 w-4 mr-2" />
+				<TrashIcon className="size-4 mr-2" />
 				Delete
 			</Button>
 		</div>

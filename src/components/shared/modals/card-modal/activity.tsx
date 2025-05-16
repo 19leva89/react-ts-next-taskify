@@ -13,7 +13,7 @@ interface Props {
 export const Activity = ({ data }: Props) => {
 	return (
 		<div className="flex items-center gap-x-3 w-full">
-			<ActivityIcon className="h-5 w-5 mt-0.5 text-neutral-700" />
+			<ActivityIcon className="size-5 mt-0.5 text-neutral-700" />
 
 			<div className="w-full">
 				<p className="font-semibold text-neutral-700 mb-2">Activity</p>
@@ -31,7 +31,7 @@ export const Activity = ({ data }: Props) => {
 Activity.Skeleton = function SkeletonActivity() {
 	return (
 		<div className="flex items-start gap-x-3 w-full">
-			<Skeleton className="h-6 w-6 bg-neutral-200" />
+			<Skeleton className="size-6 bg-neutral-200" />
 
 			<div className="w-full">
 				<Skeleton className="h-6 w-24 mb-2 bg-neutral-200" />

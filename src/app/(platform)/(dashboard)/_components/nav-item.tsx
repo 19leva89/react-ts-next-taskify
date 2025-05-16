@@ -5,7 +5,6 @@ import { usePathname, useRouter } from 'next/navigation'
 import { ActivityIcon, CreditCardIcon, LayoutIcon, SettingsIcon } from 'lucide-react'
 
 import { cn } from '@/lib'
-
 import { AccordionContent, AccordionItem, AccordionTrigger, Button, Skeleton } from '@/components/ui'
 
 export type Organization = {
@@ -29,22 +28,22 @@ export const NavItem = ({ isActive, isExpanded, organization, onExpand }: Props)
 	const routes = [
 		{
 			label: 'Boards',
-			icon: <LayoutIcon className="h-4 w-4 mr-2" />,
+			icon: <LayoutIcon className="size-4 mr-2" />,
 			href: `/organization/${organization.id}`,
 		},
 		{
 			label: 'Activity',
-			icon: <ActivityIcon className="h-4 w-4 mr-2" />,
+			icon: <ActivityIcon className="size-4 mr-2" />,
 			href: `/organization/${organization.id}/activity`,
 		},
 		{
 			label: 'Settings',
-			icon: <SettingsIcon className="h-4 w-4 mr-2" />,
+			icon: <SettingsIcon className="size-4 mr-2" />,
 			href: `/organization/${organization.id}/settings`,
 		},
 		{
 			label: 'Billing',
-			icon: <CreditCardIcon className="h-4 w-4 mr-2" />,
+			icon: <CreditCardIcon className="size-4 mr-2" />,
 			href: `/organization/${organization.id}/billing`,
 		},
 	]
@@ -58,12 +57,12 @@ export const NavItem = ({ isActive, isExpanded, organization, onExpand }: Props)
 			<AccordionTrigger
 				onClick={() => onExpand(organization.id)}
 				className={cn(
-					'flex items-center gap-x-2 p-1.5 text-neutral-700 rounded-md hover:bg-neutral-500/10 transition text-start no-underline hover:no-underline',
+					'flex items-center gap-x-2 p-1.5 rounded-md text-neutral-700 hover:bg-neutral-500/10 transition text-start no-underline hover:no-underline cursor-pointer',
 					isActive && !isExpanded && 'bg-sky-500/10 text-sky-700',
 				)}
 			>
 				<div className="flex items-center gap-x-2">
-					<div className="w-7 h-7 relative">
+					<div className="size-7 relative">
 						<Image
 							fill
 							src={organization.imageUrl}
@@ -85,7 +84,7 @@ export const NavItem = ({ isActive, isExpanded, organization, onExpand }: Props)
 						size="sm"
 						onClick={() => onClick(route.href)}
 						className={cn(
-							'w-full font-normal justify-start pl-10 mb-1 transition-colors ease-in-out duration-300',
+							'justify-start pl-10 mb-1 w-full font-normal transition-colors ease-in-out duration-300',
 							pathname === route.href && 'bg-sky-500/10 text-sky-700',
 						)}
 					>
@@ -101,8 +100,8 @@ export const NavItem = ({ isActive, isExpanded, organization, onExpand }: Props)
 NavItem.Skeleton = function SkeletonNavItem() {
 	return (
 		<div className="flex items-center gap-x-2">
-			<div className="w-10 h-10 relative shrink-0">
-				<Skeleton className="h-full w-full absolute" />
+			<div className="size-10 relative shrink-0">
+				<Skeleton className="size-full absolute" />
 			</div>
 
 			<Skeleton className="h-10 w-full" />

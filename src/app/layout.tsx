@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
+import { PropsWithChildren } from 'react'
 
-import { textFont } from './fonts'
+import { textFont } from '@/app/fonts'
 import { siteConfig } from '@/config/site'
 
-import './globals.css'
-import { PropsWithChildren } from 'react'
+import '@/app/globals.css'
 
 export const metadata: Metadata = {
 	title: { default: siteConfig.name, template: `%s | ${siteConfig.name}` },

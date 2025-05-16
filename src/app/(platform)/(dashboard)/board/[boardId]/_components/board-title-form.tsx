@@ -5,10 +5,9 @@ import { Board } from '@prisma/client'
 import { ComponentRef, useRef, useState } from 'react'
 
 import { Button } from '@/components/ui'
-import { FormInput } from '@/components/shared/form/form-input'
-
 import { useAction } from '@/hooks/use-action'
 import { updateBoard } from '@/actions/update-board'
+import { FormInput } from '@/components/shared/form/form-input'
 
 interface Props {
 	data: Board
@@ -74,7 +73,7 @@ export const BoardTitleForm = ({ data }: Props) => {
 		<Button
 			variant="transparent"
 			onClick={enableEditing}
-			className="font-bold text-lg h-auto w-auto p-1 px-2 transition-colors ease-in-out duration-300"
+			className="font-bold text-lg size-auto p-1 px-2 transition-colors ease-in-out duration-300"
 		>
 			{title}
 		</Button>

@@ -3,8 +3,7 @@ import { auth } from '@clerk/nextjs/server'
 import { notFound, redirect } from 'next/navigation'
 
 import { prisma } from '@/lib/db'
-
-import { BoardNavbar } from './_components/board-navbar'
+import { BoardNavbar } from '@/app/(platform)/(dashboard)/board/[boardId]/_components/board-navbar'
 
 interface Props {
 	params: Promise<{ boardId: string }>

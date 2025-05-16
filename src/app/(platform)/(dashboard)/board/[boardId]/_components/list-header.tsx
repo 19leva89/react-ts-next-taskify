@@ -8,8 +8,7 @@ import { ComponentRef, useRef, useState } from 'react'
 import { useAction } from '@/hooks/use-action'
 import { updateList } from '@/actions/update-list'
 import { FormInput } from '@/components/shared/form/form-input'
-
-import { ListOptions } from './list-options'
+import { ListOptions } from '@/app/(platform)/(dashboard)/board/[boardId]/_components/list-options'
 
 interface Props {
 	data: List

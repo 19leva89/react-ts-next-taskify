@@ -1,8 +1,7 @@
 import { Separator } from '@/components/ui'
 import { checkSubscription } from '@/lib/subscription'
-
-import { Info } from '../_components/info'
-import { SubscriptionButton } from './_components/subscription-button'
+import { Info } from '@/app/(platform)/(dashboard)/organization/[organizationId]/_components/info'
+import { SubscriptionButton } from '@/app/(platform)/(dashboard)/organization/[organizationId]/billing/_components/subscription-button'
 
 const BillingPage = async () => {
 	const isPro = await checkSubscription()

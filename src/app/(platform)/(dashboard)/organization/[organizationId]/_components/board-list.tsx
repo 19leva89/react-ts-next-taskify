@@ -26,7 +26,7 @@ export const BoardList = async () => {
 	return (
 		<div className="space-y-4">
 			<div className="flex items-center font-semibold text-lg text-neutral-700">
-				<User2Icon className="h-6 w-6 mr-2" />
+				<User2Icon className="size-6 mr-2" />
 				Your boards
 			</div>
 
@@ -35,7 +35,7 @@ export const BoardList = async () => {
 					<Link
 						key={board.id}
 						href={`/board/${board.id}`}
-						className="group relative aspect-video bg-no-repeat bg-center bg-cover bg-sky-700 rounded-sm h-full w-full p-2 overflow-hidden"
+						className="group relative aspect-video bg-no-repeat bg-center bg-cover bg-sky-700 rounded-sm size-full p-2 overflow-hidden"
 						style={{ backgroundImage: `url(${board.imageThumbUrl})` }}
 					>
 						<div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition" />
@@ -47,7 +47,7 @@ export const BoardList = async () => {
 				<FormPopover sideOffset={10} side="right">
 					<div
 						role="button"
-						className="relative flex flex-col gap-y-1 items-center justify-center cursor-pointer aspect-video h-full w-full bg-muted rounded-sm hover:opacity-75 transition"
+						className="relative flex flex-col gap-y-1 items-center justify-center cursor-pointer aspect-video size-full bg-muted rounded-sm hover:opacity-75 transition"
 					>
 						<p className="text-sm">Create new board</p>
 
@@ -59,7 +59,7 @@ export const BoardList = async () => {
 							sideOffset={40}
 							description="Free Workspaces can have up to 5 open boards. For unlimited boards upgrade this workspace."
 						>
-							<HelpCircleIcon className="absolute bottom-2 right-2 h-[14px] w-[14px]" />
+							<HelpCircleIcon className="absolute bottom-2 right-2 size-3.5" />
 						</Hint>
 					</div>
 				</FormPopover>
@@ -71,14 +71,14 @@ export const BoardList = async () => {
 BoardList.Skeleton = function SkeletonBoardList() {
 	return (
 		<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-			<Skeleton className="aspect-video h-full w-full p-2" />
-			<Skeleton className="aspect-video h-full w-full p-2" />
-			<Skeleton className="aspect-video h-full w-full p-2" />
-			<Skeleton className="aspect-video h-full w-full p-2" />
-			<Skeleton className="aspect-video h-full w-full p-2" />
-			<Skeleton className="aspect-video h-full w-full p-2" />
-			<Skeleton className="aspect-video h-full w-full p-2" />
-			<Skeleton className="aspect-video h-full w-full p-2" />
+			<Skeleton className="aspect-video size-full p-2" />
+			<Skeleton className="aspect-video size-full p-2" />
+			<Skeleton className="aspect-video size-full p-2" />
+			<Skeleton className="aspect-video size-full p-2" />
+			<Skeleton className="aspect-video size-full p-2" />
+			<Skeleton className="aspect-video size-full p-2" />
+			<Skeleton className="aspect-video size-full p-2" />
+			<Skeleton className="aspect-video size-full p-2" />
 		</div>
 	)
 }

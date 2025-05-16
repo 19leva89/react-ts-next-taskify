@@ -8,12 +8,10 @@ import { useRouter } from 'next/navigation'
 import { useAction } from '@/hooks/use-action'
 import { useProModal } from '@/hooks/use-pro-modal'
 import { createBoard } from '@/actions/create-board'
-
+import { FormInput } from '@/components/shared/form/form-input'
+import { FormSubmit } from '@/components/shared/form/form-submit'
+import { FormPicker } from '@/components/shared/form/form-picker'
 import { Button, Popover, PopoverClose, PopoverContent, PopoverTrigger } from '@/components/ui'
-
-import { FormInput } from './form-input'
-import { FormSubmit } from './form-submit'
-import { FormPicker } from './form-picker'
 
 interface Props {
 	children: ReactNode
@@ -58,9 +56,9 @@ export const FormPopover = ({ children, side = 'bottom', align, sideOffset = 0 }
 					<Button
 						variant="ghost"
 						size="icon"
-						className="h-auto w-auto p-2 absolute top-2 right-2 text-neutral-600 transition-colors ease-in-out duration-300"
+						className="size-auto p-2 absolute top-2 right-2 text-neutral-600 transition-colors ease-in-out duration-300"
 					>
-						<XIcon className="h-4 w-4" />
+						<XIcon className="size-4" />
 					</Button>
 				</PopoverClose>
 

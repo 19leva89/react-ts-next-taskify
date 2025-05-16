@@ -1,8 +1,8 @@
-import { auth } from '@clerk/nextjs/server'
-
 import { startCase } from 'lodash'
 import { PropsWithChildren } from 'react'
-import { OrgControl } from './_components/org-control'
+import { auth } from '@clerk/nextjs/server'
+
+import { OrgControl } from '@/app/(platform)/(dashboard)/organization/[organizationId]/_components/org-control'
 
 export const generateMetadata = async () => {
 	const { orgSlug } = await auth()

@@ -6,8 +6,7 @@ import { OrganizationSwitcher, UserButton } from '@clerk/nextjs'
 import { Button } from '@/components/ui'
 import { Logo } from '@/components/shared/logo'
 import { FormPopover } from '@/components/shared/form/form-popover'
-
-import { MobileSidebar } from './mobile-sidebar'
+import { MobileSidebar } from '@/app/(platform)/(dashboard)/_components/mobile-sidebar'
 
 export const Navbar = () => {
 	return (
@@ -35,7 +34,7 @@ export const Navbar = () => {
 						size="sm"
 						className="rounded-sm block md:hidden transition-colors ease-in-out duration-300"
 					>
-						<PlusIcon className="h-4 w-4" />
+						<PlusIcon className="size-4" />
 					</Button>
 				</FormPopover>
 			</div>

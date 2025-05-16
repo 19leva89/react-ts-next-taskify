@@ -1,9 +1,5 @@
-import { ReactNode } from 'react'
+import { PropsWithChildren } from 'react'
 
-interface Props {
-	children: ReactNode
-}
-
-export const ListWrapper = ({ children }: Props) => {
-	return <li className="shrink-0 h-full w-[272px] select-none">{children}</li>
+export const ListWrapper = ({ children }: PropsWithChildren) => {
+	return <li className="shrink-0 h-full w-68 select-none">{children}</li>
 }

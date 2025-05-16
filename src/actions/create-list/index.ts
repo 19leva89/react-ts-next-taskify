@@ -6,10 +6,9 @@ import { ACTION, ENTITY_TYPE } from '@prisma/client'
 
 import { prisma } from '@/lib/db'
 import { createAuditLog } from '@/lib/create-audit-log'
+import { CreateList } from '@/actions/create-list/schema'
 import { createSafeAction } from '@/lib/create-safe-action'
-
-import { CreateList } from './schema'
-import { InputType, ReturnType } from './types'
+import { InputType, ReturnType } from '@/actions/create-list/types'
 
 const handler = async (data: InputType): Promise<ReturnType> => {
 	const { userId, orgId } = await auth()

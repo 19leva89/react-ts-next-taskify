@@ -20,7 +20,7 @@ export const Info = ({ isPro }: Props) => {
 	return (
 		<div className="flex items-center gap-x-4">
 			{organization?.imageUrl && (
-				<div className="w-[60px] h-[60px] relative">
+				<div className="size-15 relative">
 					<Image
 						fill
 						src={organization.imageUrl}
@@ -35,7 +35,7 @@ export const Info = ({ isPro }: Props) => {
 				<p className="font-semibold text-xl"> {organization?.name}</p>
 
 				<div className="flex items-center text-xs text-muted-foreground">
-					<CreditCardIcon className="h-3 w-3 mr-1" />
+					<CreditCardIcon className="size-3 mr-1" />
 
 					{isPro ? 'Pro' : 'Free'}
 				</div>
@@ -47,16 +47,16 @@ export const Info = ({ isPro }: Props) => {
 Info.Skeleton = function SkeletonInfo() {
 	return (
 		<div className="flex items-center gap-x-4">
-			<div className="w-[60px] h-[60px] relative">
-				<Skeleton className="h-full w-full absolute" />
+			<div className="size-15 relative">
+				<Skeleton className="size-full absolute" />
 			</div>
 
 			<div className="space-y-2">
-				<Skeleton className="h-10 w-[200px]" />
+				<Skeleton className="h-10 w-50" />
 
 				<div className="flex items-center">
-					<Skeleton className="h-4 w-4 mr-2" />
-					<Skeleton className="h-4 w-[100px]" />
+					<Skeleton className="size-4 mr-2" />
+					<Skeleton className="h-4 w-25" />
 				</div>
 			</div>
 		</div>

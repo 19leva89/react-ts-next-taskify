@@ -5,8 +5,7 @@ import { forwardRef, KeyboardEventHandler } from 'react'
 
 import { cn } from '@/lib'
 import { Label, Textarea } from '@/components/ui'
-
-import { FormErrors } from './form-errors'
+import { FormErrors } from '@/components/shared/form/form-errors'
 
 interface Props {
 	id: string

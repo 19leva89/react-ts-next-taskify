@@ -4,10 +4,9 @@ import { MenuIcon } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
-import { Sidebar } from './sidebar'
 import { useMobileSidebar } from '@/hooks/use-mobile-sidebar'
-
 import { Button, Sheet, SheetContent } from '@/components/ui'
+import { Sidebar } from '@/app/(platform)/(dashboard)/_components/sidebar'
 
 export const MobileSidebar = () => {
 	const pathname = usePathname()
@@ -37,7 +36,7 @@ export const MobileSidebar = () => {
 				onClick={onOpen}
 				className="block md:hidden mr-2 transition-colors ease-in-out duration-300"
 			>
-				<MenuIcon className="h-4 w-4" />
+				<MenuIcon className="size-4" />
 			</Button>
 
 			<Sheet open={isOpen} onOpenChange={onClose}>

@@ -5,8 +5,7 @@ import { useFormStatus } from 'react-dom'
 
 import { cn } from '@/lib'
 import { Input, Label } from '@/components/ui'
-
-import { FormErrors } from './form-errors'
+import { FormErrors } from '@/components/shared/form/form-errors'
 
 interface Props {
 	id: string

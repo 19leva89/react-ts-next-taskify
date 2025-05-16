@@ -11,8 +11,7 @@ import { useAction } from '@/hooks/use-action'
 import { createList } from '@/actions/create-list'
 import { FormInput } from '@/components/shared/form/form-input'
 import { FormSubmit } from '@/components/shared/form/form-submit'
-
-import { ListWrapper } from './list-wrapper'
+import { ListWrapper } from '@/app/(platform)/(dashboard)/board/[boardId]/_components/list-wrapper'
 
 export const ListForm = () => {
 	const router = useRouter()
@@ -90,7 +89,7 @@ export const ListForm = () => {
 							onClick={disableEditing}
 							className="transition-colors ease-in-out duration-300"
 						>
-							<XIcon className="h-5 w-5" />
+							<XIcon className="size-5" />
 						</Button>
 					</div>
 				</form>
@@ -104,7 +103,7 @@ export const ListForm = () => {
 				onClick={enableEditing}
 				className="w-full rounded-md bg-white/80 hover:bg-white/50 transition p-3 flex items-center font-medium text-sm cursor-pointer"
 			>
-				<PlusIcon className="h-4 w-4 mr-2" />
+				<PlusIcon className="size-4 mr-2" />
 				Add a list
 			</button>
 		</ListWrapper>

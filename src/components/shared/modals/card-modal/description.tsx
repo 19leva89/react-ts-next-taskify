@@ -10,7 +10,6 @@ import { ComponentRef, RefObject, useRef, useState } from 'react'
 import { CardWithList } from '@/types'
 import { useAction } from '@/hooks/use-action'
 import { updateCard } from '@/actions/update-card'
-
 import { Button, Skeleton } from '@/components/ui'
 import { FormSubmit } from '@/components/shared/form/form-submit'
 import { FormTextarea } from '@/components/shared/form/form-textarea'
@@ -76,7 +75,7 @@ export const Description = ({ data }: Props) => {
 
 	return (
 		<div className="flex items-start gap-x-3 w-full">
-			<AlignLeftIcon className="h-5 w-5 mt-0.5 text-neutral-700" />
+			<AlignLeftIcon className="size-5 mt-0.5 text-neutral-700" />
 
 			<div className="w-full">
 				<p className="font-semibold text-neutral-700 mb-2">Description</p>
@@ -123,7 +122,7 @@ export const Description = ({ data }: Props) => {
 Description.Skeleton = function SkeletonDescription() {
 	return (
 		<div className="flex items-start gap-x-3 w-full">
-			<Skeleton className="h-6 w-6 bg-neutral-200" />
+			<Skeleton className="size-6 bg-neutral-200" />
 
 			<div className="w-full">
 				<Skeleton className="h-6 w-24 mb-2 bg-neutral-200" />

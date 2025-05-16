@@ -56,7 +56,7 @@ export const Header = ({ data }: Props) => {
 
 	return (
 		<div className="flex items-start gap-x-3 mb-6 w-full">
-			<LayoutIcon className="h-5 w-5 mt-1 text-neutral-700" />
+			<LayoutIcon className="size-5 mt-1 text-neutral-700" />
 
 			<div className="w-full">
 				<form action={onSubmit}>
@@ -80,7 +80,7 @@ export const Header = ({ data }: Props) => {
 Header.Skeleton = function SkeletonHeader() {
 	return (
 		<div className="flex items-start gap-x-3 mb-6">
-			<Skeleton className="h-6 w-6 mt-1 bg-neutral-200" />
+			<Skeleton className="size-6 mt-1 bg-neutral-200" />
 
 			<div>
 				<Skeleton className="h-6 w-24 mb-1 bg-neutral-200" />

@@ -4,11 +4,10 @@ import { ComponentRef, useRef, useState } from 'react'
 import { Draggable, Droppable } from '@hello-pangea/dnd'
 
 import { cn } from '@/lib'
-
 import { ListWithCards } from '@/types'
-import { CardForm } from './card-form'
-import { CardItem } from './card-item'
-import { ListHeader } from './list-header'
+import { CardForm } from '@/app/(platform)/(dashboard)/board/[boardId]/_components/card-form'
+import { CardItem } from '@/app/(platform)/(dashboard)/board/[boardId]/_components/card-item'
+import { ListHeader } from '@/app/(platform)/(dashboard)/board/[boardId]/_components/list-header'
 
 interface ListItemProps {
 	index: number
@@ -39,7 +38,7 @@ export const ListItem = ({ index, data }: ListItemProps) => {
 				<li
 					{...provided.draggableProps}
 					ref={provided.innerRef}
-					className="shrink-0 h-full w-[272px] select-none"
+					className="shrink-0 h-full w-68 select-none"
 				>
 					<div {...provided.dragHandleProps} className="w-full rounded-md bg-[#f1f2f4] shadow-md pb-2">
 						<ListHeader onAddCard={enableEditing} data={data} />

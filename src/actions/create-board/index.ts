@@ -7,11 +7,10 @@ import { ACTION, ENTITY_TYPE } from '@prisma/client'
 import { prisma } from '@/lib/db'
 import { checkSubscription } from '@/lib/subscription'
 import { createAuditLog } from '@/lib/create-audit-log'
+import { CreateBoard } from '@/actions/create-board/schema'
 import { createSafeAction } from '@/lib/create-safe-action'
+import { InputType, ReturnType } from '@/actions/create-board/types'
 import { hasAvailableCount, incrementAvailableCount } from '@/lib/org-limit'
-
-import { CreateBoard } from './schema'
-import { InputType, ReturnType } from './types'
 
 const handler = async (data: InputType): Promise<ReturnType> => {
 	const { userId, orgId } = await auth()

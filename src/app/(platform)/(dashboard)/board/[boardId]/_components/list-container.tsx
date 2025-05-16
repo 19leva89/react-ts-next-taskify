@@ -8,9 +8,8 @@ import { ListWithCards } from '@/types'
 import { useAction } from '@/hooks/use-action'
 import { updateListOrder } from '@/actions/update-list-order'
 import { updateCardOrder } from '@/actions/update-card-order'
-
-import { ListForm } from './list-form'
-import { ListItem } from './list-item'
+import { ListForm } from '@/app/(platform)/(dashboard)/board/[boardId]/_components/list-form'
+import { ListItem } from '@/app/(platform)/(dashboard)/board/[boardId]/_components/list-item'
 
 interface Props {
 	data: ListWithCards[]

@@ -7,8 +7,7 @@ import { CheckIcon, Loader2Icon } from 'lucide-react'
 import { cn } from '@/lib'
 import { unsplash } from '@/lib/unsplash'
 import { defaultImages } from '@/constants/images'
-
-import { FormErrors } from './form-errors'
+import { FormErrors } from '@/components/shared/form/form-errors'
 
 interface UnsplashImage {
 	id: string
@@ -64,7 +63,7 @@ export const FormPicker = ({ id, errors }: Props) => {
 	if (isLoading) {
 		return (
 			<div className="p-6 flex items-center justify-center">
-				<Loader2Icon className="h-6 w-6 text-sky-700 animate-spin" />
+				<Loader2Icon className="size-6 text-sky-700 animate-spin" />
 			</div>
 		)
 	}
@@ -104,8 +103,8 @@ export const FormPicker = ({ id, errors }: Props) => {
 						/>
 
 						{selectedImageId === image.id && (
-							<div className="absolute inset-y-0 h-full w-full bg-black/30 flex items-center justify-center">
-								<CheckIcon className="h-4 w-4 text-white" />
+							<div className="absolute inset-y-0 size-full bg-black/30 flex items-center justify-center">
+								<CheckIcon className="size-4 text-white" />
 							</div>
 						)}
 

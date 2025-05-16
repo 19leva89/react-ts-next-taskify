@@ -5,11 +5,10 @@ import { revalidatePath } from 'next/cache'
 import { ACTION, ENTITY_TYPE } from '@prisma/client'
 
 import { prisma } from '@/lib/db'
+import { CopyCard } from '@/actions/copy-card/schema'
 import { createAuditLog } from '@/lib/create-audit-log'
 import { createSafeAction } from '@/lib/create-safe-action'
-
-import { CopyCard } from './schema'
-import { InputType, ReturnType } from './types'
+import { InputType, ReturnType } from '@/actions/copy-card/types'
 
 const handler = async (data: InputType): Promise<ReturnType> => {
 	const { userId, orgId } = await auth()

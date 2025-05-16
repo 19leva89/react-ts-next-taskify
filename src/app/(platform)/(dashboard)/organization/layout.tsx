@@ -1,5 +1,6 @@
 import { PropsWithChildren } from 'react'
-import { Sidebar } from '../_components/sidebar'
+
+import { Sidebar } from '@/app/(platform)/(dashboard)/_components/sidebar'
 
 const OrganizationLayout = ({ children }: PropsWithChildren) => {
 	return (

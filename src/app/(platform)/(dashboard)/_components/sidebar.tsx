@@ -5,8 +5,8 @@ import { PlusIcon } from 'lucide-react'
 import { useLocalStorage } from 'usehooks-ts'
 import { useOrganization, useOrganizationList } from '@clerk/nextjs'
 
-import { NavItem, Organization } from './nav-item'
 import { Accordion, Button, Skeleton } from '@/components/ui'
+import { NavItem, Organization } from '@/app/(platform)/(dashboard)/_components/nav-item'
 
 interface ExpandedState {
 	[key: string]: boolean
@@ -46,7 +46,7 @@ export const Sidebar = ({ storageKey = 't-sidebar-state' }: Props) => {
 				<div className="flex items-center justify-between mb-2">
 					<Skeleton className="h-10 w-[50%]" />
 
-					<Skeleton className="h-10 w-10" />
+					<Skeleton className="size-10" />
 				</div>
 
 				<div className="space-y-2">
@@ -71,7 +71,7 @@ export const Sidebar = ({ storageKey = 't-sidebar-state' }: Props) => {
 					asChild
 				>
 					<Link href="/select-org">
-						<PlusIcon className="h-4 w-4" />
+						<PlusIcon className="size-4" />
 					</Link>
 				</Button>
 			</div>
@@ -84,7 +84,7 @@ export const Sidebar = ({ storageKey = 't-sidebar-state' }: Props) => {
 						isExpanded={expanded[organization.id]}
 						organization={organization as Organization}
 						onExpand={onExpanded}
-					></NavItem>
+					/>
 				))}
 			</Accordion>
 		</>
