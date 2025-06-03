@@ -4,14 +4,7 @@ import { toast } from 'sonner'
 import { List } from '@prisma/client'
 import { MoreHorizontalIcon, XIcon } from 'lucide-react'
 
-import {
-	Button,
-	Popover,
-	PopoverClose,
-	PopoverContent,
-	PopoverTrigger,
-	Separator,
-} from '@/components/ui'
+import { Button, Popover, PopoverClose, PopoverContent, PopoverTrigger, Separator } from '@/components/ui'
 import { useAction } from '@/hooks/use-action'
 import { copyList } from '@/actions/copy-list'
 import { deleteList } from '@/actions/delete-list'
@@ -60,40 +53,40 @@ export const ListOptions = ({ data, onAddCard }: Props) => {
 	return (
 		<Popover>
 			<PopoverTrigger asChild>
-				<Button variant="ghost" className="size-auto p-2 transition-colors ease-in-out duration-300">
-					<MoreHorizontalIcon className="size-4" />
+				<Button variant='ghost' className='size-auto p-2 transition-colors duration-300 ease-in-out'>
+					<MoreHorizontalIcon className='size-4' />
 				</Button>
 			</PopoverTrigger>
 
-			<PopoverContent className="px-0 pt-3 pb-3" side="bottom" align="start">
-				<div className="text-sm font-medium text-center text-neutral-600 pb-4">List actions</div>
+			<PopoverContent className='px-0 pt-3 pb-3' side='bottom' align='start'>
+				<div className='pb-4 text-center text-sm font-medium text-neutral-600'>List actions</div>
 
 				<PopoverClose asChild>
 					<Button
-						variant="ghost"
-						size="icon"
-						className="size-auto p-2 absolute top-2 right-2 text-neutral-600 transition-colors ease-in-out duration-300"
+						variant='ghost'
+						size='icon'
+						className='absolute top-2 right-2 size-auto p-2 text-neutral-600 transition-colors duration-300 ease-in-out'
 					>
-						<XIcon className="size-4" />
+						<XIcon className='size-4' />
 					</Button>
 				</PopoverClose>
 
 				<Button
-					variant="ghost"
+					variant='ghost'
 					onClick={onAddCard}
-					className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm transition-colors ease-in-out duration-300"
+					className='h-auto w-full justify-start rounded-none p-2 px-5 text-sm font-normal transition-colors duration-300 ease-in-out'
 				>
 					Add card...
 				</Button>
 
 				<form action={onCopy}>
-					<input hidden id="id" name="id" defaultValue={data.id} />
+					<input hidden id='id' name='id' defaultValue={data.id} />
 
-					<input hidden id="boardId" name="boardId" defaultValue={data.boardId} />
+					<input hidden id='boardId' name='boardId' defaultValue={data.boardId} />
 
 					<FormSubmit
-						variant="ghost"
-						className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
+						variant='ghost'
+						className='h-auto w-full justify-start rounded-none p-2 px-5 text-sm font-normal'
 					>
 						Copy list...
 					</FormSubmit>
@@ -102,13 +95,13 @@ export const ListOptions = ({ data, onAddCard }: Props) => {
 				<Separator />
 
 				<form action={onDelete}>
-					<input hidden id="id" name="id" defaultValue={data.id} />
+					<input hidden id='id' name='id' defaultValue={data.id} />
 
-					<input hidden id="boardId" name="boardId" defaultValue={data.boardId} />
+					<input hidden id='boardId' name='boardId' defaultValue={data.boardId} />
 
 					<FormSubmit
-						variant="ghost"
-						className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
+						variant='ghost'
+						className='h-auto w-full justify-start rounded-none p-2 px-5 text-sm font-normal'
 					>
 						Delete this list...
 					</FormSubmit>

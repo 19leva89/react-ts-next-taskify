@@ -65,31 +65,27 @@ export const ListForm = () => {
 	if (isEditing) {
 		return (
 			<ListWrapper>
-				<form
-					action={onSubmit}
-					ref={formRef}
-					className="w-full p-3 rounded-md bg-white space-y-4 shadow-md"
-				>
+				<form action={onSubmit} ref={formRef} className='w-full space-y-4 rounded-md bg-white p-3 shadow-md'>
 					<FormInput
-						id="title"
+						id='title'
 						ref={inputRef}
 						errors={fieldErrors}
-						className="text-sm font-medium px-2 py-1 h-7 border-transparent hover:border-input focus:border-input transition"
-						placeholder="Enter list title..."
+						className='h-7 border-transparent px-2 py-1 text-sm font-medium transition hover:border-input focus:border-input'
+						placeholder='Enter list title...'
 					/>
 
-					<input hidden defaultValue={params.boardId} name="boardId" />
+					<input hidden defaultValue={params.boardId} name='boardId' />
 
-					<div className="flex items-center gap-x-1">
+					<div className='flex items-center gap-x-1'>
 						<FormSubmit>Add list</FormSubmit>
 
 						<Button
-							variant="ghost"
-							size="sm"
+							variant='ghost'
+							size='sm'
 							onClick={disableEditing}
-							className="transition-colors ease-in-out duration-300"
+							className='transition-colors duration-300 ease-in-out'
 						>
-							<XIcon className="size-5" />
+							<XIcon className='size-5' />
 						</Button>
 					</div>
 				</form>
@@ -101,9 +97,9 @@ export const ListForm = () => {
 		<ListWrapper>
 			<button
 				onClick={enableEditing}
-				className="w-full rounded-md bg-white/80 hover:bg-white/50 transition p-3 flex items-center font-medium text-sm cursor-pointer"
+				className='flex w-full cursor-pointer items-center rounded-md bg-white/80 p-3 text-sm font-medium transition hover:bg-white/50'
 			>
-				<PlusIcon className="size-4 mr-2" />
+				<PlusIcon className='mr-2 size-4' />
 				Add a list
 			</button>
 		</ListWrapper>

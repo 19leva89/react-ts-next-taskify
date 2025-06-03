@@ -9,7 +9,7 @@ const PlatformLayout = ({ children }: PropsWithChildren) => {
 	return (
 		<ClerkProvider>
 			<QueryProvider>
-				<Toaster position="bottom-right" expand={false} richColors />
+				<Toaster position='bottom-right' expand={false} richColors />
 
 				<ModalProvider />
 

@@ -28,22 +28,22 @@ export const NavItem = ({ isActive, isExpanded, organization, onExpand }: Props)
 	const routes = [
 		{
 			label: 'Boards',
-			icon: <LayoutIcon className="size-4 mr-2" />,
+			icon: <LayoutIcon className='mr-2 size-4' />,
 			href: `/organization/${organization.id}`,
 		},
 		{
 			label: 'Activity',
-			icon: <ActivityIcon className="size-4 mr-2" />,
+			icon: <ActivityIcon className='mr-2 size-4' />,
 			href: `/organization/${organization.id}/activity`,
 		},
 		{
 			label: 'Settings',
-			icon: <SettingsIcon className="size-4 mr-2" />,
+			icon: <SettingsIcon className='mr-2 size-4' />,
 			href: `/organization/${organization.id}/settings`,
 		},
 		{
 			label: 'Billing',
-			icon: <CreditCardIcon className="size-4 mr-2" />,
+			icon: <CreditCardIcon className='mr-2 size-4' />,
 			href: `/organization/${organization.id}/billing`,
 		},
 	]
@@ -53,38 +53,38 @@ export const NavItem = ({ isActive, isExpanded, organization, onExpand }: Props)
 	}
 
 	return (
-		<AccordionItem value={organization.id} className="border-none">
+		<AccordionItem value={organization.id} className='border-none'>
 			<AccordionTrigger
 				onClick={() => onExpand(organization.id)}
 				className={cn(
-					'flex items-center gap-x-2 p-1.5 rounded-md text-neutral-700 hover:bg-neutral-500/10 transition text-start no-underline hover:no-underline cursor-pointer',
+					'flex cursor-pointer items-center gap-x-2 rounded-md p-1.5 text-start text-neutral-700 no-underline transition hover:bg-neutral-500/10 hover:no-underline',
 					isActive && !isExpanded && 'bg-sky-500/10 text-sky-700',
 				)}
 			>
-				<div className="flex items-center gap-x-2">
-					<div className="size-7 relative">
+				<div className='flex items-center gap-x-2'>
+					<div className='relative size-7'>
 						<Image
 							fill
 							src={organization.imageUrl}
-							alt="Organization"
-							className="rounded-sm object-cover"
-							sizes="10vw"
+							alt='Organization'
+							className='rounded-sm object-cover'
+							sizes='10vw'
 						/>
 					</div>
 
-					<span className="font-medium text-sm">{organization.name}</span>
+					<span className='text-sm font-medium'>{organization.name}</span>
 				</div>
 			</AccordionTrigger>
 
-			<AccordionContent className="pt-1 text-neutral-700">
+			<AccordionContent className='pt-1 text-neutral-700'>
 				{routes.map((route) => (
 					<Button
 						key={route.href}
-						variant="ghost"
-						size="sm"
+						variant='ghost'
+						size='sm'
 						onClick={() => onClick(route.href)}
 						className={cn(
-							'justify-start pl-10 mb-1 w-full font-normal transition-colors ease-in-out duration-300',
+							'mb-1 w-full justify-start pl-10 font-normal transition-colors duration-300 ease-in-out',
 							pathname === route.href && 'bg-sky-500/10 text-sky-700',
 						)}
 					>
@@ -99,12 +99,12 @@ export const NavItem = ({ isActive, isExpanded, organization, onExpand }: Props)
 
 NavItem.Skeleton = function SkeletonNavItem() {
 	return (
-		<div className="flex items-center gap-x-2">
-			<div className="size-10 relative shrink-0">
-				<Skeleton className="size-full absolute" />
+		<div className='flex items-center gap-x-2'>
+			<div className='relative size-10 shrink-0'>
+				<Skeleton className='absolute size-full' />
 			</div>
 
-			<Skeleton className="h-10 w-full" />
+			<Skeleton className='h-10 w-full' />
 		</div>
 	)
 }

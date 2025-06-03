@@ -41,10 +41,10 @@ export const FormTextarea = forwardRef<HTMLTextAreaElement, Props>(
 		const { pending } = useFormStatus()
 
 		return (
-			<div className="space-y-2 w-full">
-				<div className="space-y-1 w-full">
+			<div className='w-full space-y-2'>
+				<div className='w-full space-y-1'>
 					{label ? (
-						<Label htmlFor={id} className="text-xs font-semibold text-neutral-700">
+						<Label htmlFor={id} className='text-xs font-semibold text-neutral-700'>
 							{label}
 						</Label>
 					) : null}
@@ -56,7 +56,7 @@ export const FormTextarea = forwardRef<HTMLTextAreaElement, Props>(
 						required={required}
 						disabled={pending || disabled}
 						className={cn(
-							'resize-none focus-visible:ring-0 focus-visible:ring-offset-0 ring-0 focus:ring-0 outline-none shadow-sm',
+							'resize-none shadow-sm ring-0 outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0',
 							className,
 						)}
 						defaultValue={defaultValue}

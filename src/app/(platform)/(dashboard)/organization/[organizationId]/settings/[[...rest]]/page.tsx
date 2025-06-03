@@ -2,7 +2,7 @@ import { OrganizationProfile } from '@clerk/nextjs'
 
 const SettingsPage = () => {
 	return (
-		<div className="w-full">
+		<div className='w-full'>
 			<OrganizationProfile
 				appearance={{
 					elements: {

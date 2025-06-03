@@ -4,8 +4,8 @@ const CreateOrganizationPage = () => {
 	return (
 		<OrganizationList
 			hidePersonal
-			afterSelectOrganizationUrl="/organization/:id"
-			afterCreateOrganizationUrl="/organization/:id"
+			afterSelectOrganizationUrl='/organization/:id'
+			afterCreateOrganizationUrl='/organization/:id'
 		/>
 	)
 }

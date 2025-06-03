@@ -20,9 +20,9 @@ export const CardItem = ({ index, data }: Props) => {
 					{...provided.draggableProps}
 					{...provided.dragHandleProps}
 					ref={provided.innerRef}
-					role="button"
+					role='button'
 					onClick={() => cardModal.onOpen(data.id)}
-					className="truncate border-2 border-transparent hover:border-black py-2 px-3 text-sm bg-white rounded-md shadow-sm"
+					className='truncate rounded-md border-2 border-transparent bg-white px-3 py-2 text-sm shadow-sm hover:border-black'
 				>
 					{data.title}
 				</div>

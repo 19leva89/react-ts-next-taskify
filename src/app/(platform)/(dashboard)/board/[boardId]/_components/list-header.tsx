@@ -72,29 +72,29 @@ export const ListHeader = ({ data, onAddCard }: Props) => {
 	useEventListener('keydown', onKeyDown)
 
 	return (
-		<div className="pt-2 px-2 text-sm font-semibold flex justify-between items-start gap-x-2">
+		<div className='flex items-start justify-between gap-x-2 px-2 pt-2 text-sm font-semibold'>
 			{isEditing ? (
-				<form ref={formRef} action={onSubmit} className="flex-1 px-[2px]">
-					<input hidden id="id" name="id" defaultValue={data.id} />
+				<form ref={formRef} action={onSubmit} className='flex-1 px-[2px]'>
+					<input hidden id='id' name='id' defaultValue={data.id} />
 
-					<input hidden id="boardId" name="boardId" defaultValue={data.boardId} />
+					<input hidden id='boardId' name='boardId' defaultValue={data.boardId} />
 
 					<FormInput
-						id="title"
+						id='title'
 						ref={inputRef}
 						onBlur={onBlur}
 						errors={fieldErrors}
-						placeholder="Enter list title..."
+						placeholder='Enter list title...'
 						defaultValue={title}
-						className="text-sm px-[7px] py-1 h-7 font-medium border-transparent hover:border-input focus:border-input transition truncate bg-transparent focus:bg-white"
+						className='h-7 truncate border-transparent bg-transparent px-[7px] py-1 text-sm font-medium transition hover:border-input focus:border-input focus:bg-white'
 					/>
 
-					<button type="submit" hidden />
+					<button type='submit' hidden />
 				</form>
 			) : (
 				<div
 					onClick={enableEditing}
-					className="w-full text-sm px-2.5 py-1 h-7 font-medium border-transparent"
+					className='h-7 w-full border-transparent px-2.5 py-1 text-sm font-medium'
 				>
 					{title}
 				</div>

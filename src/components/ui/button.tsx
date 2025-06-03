@@ -13,8 +13,7 @@ const buttonVariants = cva(
 				default: 'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90',
 				destructive:
 					'bg-destructive text-destructive-foreground shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40',
-				outline:
-					'border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground',
+				outline: 'border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground',
 				secondary: 'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/50',
 				ghost: 'hover:bg-accent hover:text-accent-foreground',
 				link: 'text-primary underline-offset-4 hover:underline',
@@ -55,12 +54,12 @@ function Button({
 
 	return (
 		<Comp
-			data-slot="button"
+			data-slot='button'
 			className={cn(buttonVariants({ variant, size, className }))}
 			disabled={disabled || loading}
 			{...props}
 		>
-			{!loading ? children : <Loader2Icon className="size-5 animate-spin" />}
+			{!loading ? children : <Loader2Icon className='size-5 animate-spin' />}
 		</Comp>
 	)
 }

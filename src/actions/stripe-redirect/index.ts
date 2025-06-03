@@ -59,7 +59,7 @@ const handler = async (): Promise<ReturnType> => {
 
 			url = stripeSession.url || ''
 		}
-	} catch (error) {
+	} catch {
 		return { error: 'Something went wrong!' }
 	}
 

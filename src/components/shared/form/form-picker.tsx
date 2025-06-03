@@ -62,21 +62,21 @@ export const FormPicker = ({ id, errors }: Props) => {
 
 	if (isLoading) {
 		return (
-			<div className="p-6 flex items-center justify-center">
-				<Loader2Icon className="size-6 text-sky-700 animate-spin" />
+			<div className='flex items-center justify-center p-6'>
+				<Loader2Icon className='size-6 animate-spin text-sky-700' />
 			</div>
 		)
 	}
 
 	return (
-		<div className="relative">
-			<div className="grid grid-cols-3 gap-2 mb-2">
+		<div className='relative'>
+			<div className='mb-2 grid grid-cols-3 gap-2'>
 				{images.map((image) => (
 					<div
 						key={image.id}
 						className={cn(
-							'cursor-pointer relative aspect-video group hover:opacity-75 transition bg-muted',
-							pending && 'opacity-50 hover:opacity-50 cursor-auto',
+							'group relative aspect-video cursor-pointer bg-muted transition hover:opacity-75',
+							pending && 'cursor-auto opacity-50 hover:opacity-50',
 						)}
 						onClick={() => {
 							if (pending) return
@@ -86,8 +86,8 @@ export const FormPicker = ({ id, errors }: Props) => {
 						<input
 							id={id}
 							name={id}
-							type="radio"
-							className="hidden"
+							type='radio'
+							className='hidden'
 							checked={selectedImageId === image.id}
 							disabled={pending}
 							value={`${image.id}|${image.urls.thumb}|${image.urls.full}|${image.links.html}|${image.user.name}`}
@@ -97,14 +97,14 @@ export const FormPicker = ({ id, errors }: Props) => {
 						<Image
 							fill
 							src={image.urls.thumb}
-							alt="Unsplash image"
-							className="object-cover rounded-sm"
-							sizes="20vw"
+							alt='Unsplash image'
+							className='rounded-sm object-cover'
+							sizes='20vw'
 						/>
 
 						{selectedImageId === image.id && (
-							<div className="absolute inset-y-0 size-full bg-black/30 flex items-center justify-center">
-								<CheckIcon className="size-4 text-white" />
+							<div className='absolute inset-y-0 flex size-full items-center justify-center bg-black/30'>
+								<CheckIcon className='size-4 text-white' />
 							</div>
 						)}
 
@@ -119,7 +119,7 @@ export const FormPicker = ({ id, errors }: Props) => {
 				))}
 			</div>
 
-			<FormErrors id="image" errors={errors} />
+			<FormErrors id='image' errors={errors} />
 		</div>
 	)
 }

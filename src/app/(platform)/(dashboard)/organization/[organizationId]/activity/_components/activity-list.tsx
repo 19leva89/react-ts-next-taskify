@@ -15,8 +15,8 @@ export const ActivityList = async () => {
 	const auditLogs = await prisma.auditLog.findMany({ where: { orgId }, orderBy: { createdAt: 'desc' } })
 
 	return (
-		<ol className="space-y-4 mt-4">
-			<p className="hidden last:block text-xs text-center text-muted-foreground">
+		<ol className='mt-4 space-y-4'>
+			<p className='hidden text-center text-xs text-muted-foreground last:block'>
 				No activity found inside this organization
 			</p>
 
@@ -29,15 +29,15 @@ export const ActivityList = async () => {
 
 ActivityList.Skeleton = function SkeletonActivityList() {
 	return (
-		<ol className="space-y-4 mt-4">
-			<Skeleton className="w-[80%] h-14" />
-			<Skeleton className="w-[50%] h-14" />
-			<Skeleton className="w-[70%] h-14" />
-			<Skeleton className="w-[80%] h-14" />
-			<Skeleton className="w-[80%] h-14" />
-			<Skeleton className="w-[75%] h-14" />
-			<Skeleton className="w-[60%] h-14" />
-			<Skeleton className="w-[80%] h-14" />
+		<ol className='mt-4 space-y-4'>
+			<Skeleton className='h-14 w-[80%]' />
+			<Skeleton className='h-14 w-[50%]' />
+			<Skeleton className='h-14 w-[70%]' />
+			<Skeleton className='h-14 w-[80%]' />
+			<Skeleton className='h-14 w-[80%]' />
+			<Skeleton className='h-14 w-[75%]' />
+			<Skeleton className='h-14 w-[60%]' />
+			<Skeleton className='h-14 w-[80%]' />
 		</ol>
 	)
 }

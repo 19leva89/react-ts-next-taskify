@@ -12,13 +12,13 @@ interface Props {
 
 export const Activity = ({ data }: Props) => {
 	return (
-		<div className="flex items-center gap-x-3 w-full">
-			<ActivityIcon className="size-5 mt-0.5 text-neutral-700" />
+		<div className='flex w-full items-center gap-x-3'>
+			<ActivityIcon className='mt-0.5 size-5 text-neutral-700' />
 
-			<div className="w-full">
-				<p className="font-semibold text-neutral-700 mb-2">Activity</p>
+			<div className='w-full'>
+				<p className='mb-2 font-semibold text-neutral-700'>Activity</p>
 
-				<ol className="mt-2 space-y-4">
+				<ol className='mt-2 space-y-4'>
 					{data.map((item) => (
 						<ActivityItem key={item.id} data={item} />
 					))}
@@ -30,12 +30,12 @@ export const Activity = ({ data }: Props) => {
 
 Activity.Skeleton = function SkeletonActivity() {
 	return (
-		<div className="flex items-start gap-x-3 w-full">
-			<Skeleton className="size-6 bg-neutral-200" />
+		<div className='flex w-full items-start gap-x-3'>
+			<Skeleton className='size-6 bg-neutral-200' />
 
-			<div className="w-full">
-				<Skeleton className="h-6 w-24 mb-2 bg-neutral-200" />
-				<Skeleton className="h-10 w-full bg-neutral-200" />
+			<div className='w-full'>
+				<Skeleton className='mb-2 h-6 w-24 bg-neutral-200' />
+				<Skeleton className='h-10 w-full bg-neutral-200' />
 			</div>
 		</div>
 	)

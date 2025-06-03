@@ -74,30 +74,30 @@ export const Description = ({ data }: Props) => {
 	useOnClickOutside(formRef as RefObject<HTMLElement>, disableEditing)
 
 	return (
-		<div className="flex items-start gap-x-3 w-full">
-			<AlignLeftIcon className="size-5 mt-0.5 text-neutral-700" />
+		<div className='flex w-full items-start gap-x-3'>
+			<AlignLeftIcon className='mt-0.5 size-5 text-neutral-700' />
 
-			<div className="w-full">
-				<p className="font-semibold text-neutral-700 mb-2">Description</p>
+			<div className='w-full'>
+				<p className='mb-2 font-semibold text-neutral-700'>Description</p>
 
 				{isEditing ? (
-					<form action={onSubmit} ref={formRef} className="space-y-2">
+					<form action={onSubmit} ref={formRef} className='space-y-2'>
 						<FormTextarea
-							id="description"
-							className="w-full mt-2"
-							placeholder="Add a more detailed description"
+							id='description'
+							className='mt-2 w-full'
+							placeholder='Add a more detailed description'
 							defaultValue={data.description || undefined}
 							errors={fieldErrors}
 							ref={textareaRef}
 						/>
 
-						<div className="flex items-center justify-end gap-x-2">
+						<div className='flex items-center justify-end gap-x-2'>
 							<Button
-								variant="default"
-								size="sm"
-								type="button"
+								variant='default'
+								size='sm'
+								type='button'
 								onClick={disableEditing}
-								className="transition-colors ease-in-out duration-300"
+								className='transition-colors duration-300 ease-in-out'
 							>
 								Cancel
 							</Button>
@@ -107,9 +107,9 @@ export const Description = ({ data }: Props) => {
 					</form>
 				) : (
 					<div
-						role="button"
+						role='button'
 						onClick={enableEditing}
-						className="min-h-[78px] bg-neutral-200 text-sm font-medium py-3 px-3.5 rounded-md break-words"
+						className='min-h-[78px] rounded-md bg-neutral-200 px-3.5 py-3 text-sm font-medium break-words'
 					>
 						{data.description || 'Add a more detailed description...'}
 					</div>
@@ -121,12 +121,12 @@ export const Description = ({ data }: Props) => {
 
 Description.Skeleton = function SkeletonDescription() {
 	return (
-		<div className="flex items-start gap-x-3 w-full">
-			<Skeleton className="size-6 bg-neutral-200" />
+		<div className='flex w-full items-start gap-x-3'>
+			<Skeleton className='size-6 bg-neutral-200' />
 
-			<div className="w-full">
-				<Skeleton className="h-6 w-24 mb-2 bg-neutral-200" />
-				<Skeleton className="h-[78px] w-full bg-neutral-200" />
+			<div className='w-full'>
+				<Skeleton className='mb-2 h-6 w-24 bg-neutral-200' />
+				<Skeleton className='h-[78px] w-full bg-neutral-200' />
 			</div>
 		</div>
 	)

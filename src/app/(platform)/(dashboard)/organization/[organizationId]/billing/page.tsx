@@ -7,10 +7,10 @@ const BillingPage = async () => {
 	const isPro = await checkSubscription()
 
 	return (
-		<div className="w-full">
+		<div className='w-full'>
 			<Info isPro={isPro} />
 
-			<Separator className="my-4" />
+			<Separator className='my-4' />
 
 			<SubscriptionButton isPro={isPro} />
 		</div>

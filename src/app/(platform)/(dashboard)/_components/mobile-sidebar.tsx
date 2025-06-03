@@ -31,17 +31,17 @@ export const MobileSidebar = () => {
 	return (
 		<>
 			<Button
-				variant="ghost"
-				size="sm"
+				variant='ghost'
+				size='sm'
 				onClick={onOpen}
-				className="block md:hidden mr-2 transition-colors ease-in-out duration-300"
+				className='mr-2 block transition-colors duration-300 ease-in-out md:hidden'
 			>
-				<MenuIcon className="size-4" />
+				<MenuIcon className='size-4' />
 			</Button>
 
 			<Sheet open={isOpen} onOpenChange={onClose}>
-				<SheetContent side="left" className="p-2 pt-10 bg-white">
-					<Sidebar storageKey="t-sidebar-mobile-state" />
+				<SheetContent side='left' className='bg-white p-2 pt-10'>
+					<Sidebar storageKey='t-sidebar-mobile-state' />
 				</SheetContent>
 			</Sheet>
 		</>
