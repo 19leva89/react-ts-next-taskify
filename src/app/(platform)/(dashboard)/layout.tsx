@@ -4,7 +4,7 @@ import { Navbar } from '@/app/(platform)/(dashboard)/_components/navbar'
 
 const DashboardLayout = ({ children }: PropsWithChildren) => {
 	return (
-		<div className="h-full">
+		<div className='h-full'>
 			<Navbar />
 
 			{children}

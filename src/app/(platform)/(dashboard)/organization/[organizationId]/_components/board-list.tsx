@@ -24,42 +24,42 @@ export const BoardList = async () => {
 	const isPro = await checkSubscription()
 
 	return (
-		<div className="space-y-4">
-			<div className="flex items-center font-semibold text-lg text-neutral-700">
-				<User2Icon className="size-6 mr-2" />
+		<div className='space-y-4'>
+			<div className='flex items-center text-lg font-semibold text-neutral-700'>
+				<User2Icon className='mr-2 size-6' />
 				Your boards
 			</div>
 
-			<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+			<div className='grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4'>
 				{boards.map((board) => (
 					<Link
 						key={board.id}
 						href={`/board/${board.id}`}
-						className="group relative aspect-video bg-no-repeat bg-center bg-cover bg-sky-700 rounded-sm size-full p-2 overflow-hidden"
+						className='group relative aspect-video size-full overflow-hidden rounded-sm bg-sky-700 bg-cover bg-center bg-no-repeat p-2'
 						style={{ backgroundImage: `url(${board.imageThumbUrl})` }}
 					>
-						<div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition" />
+						<div className='absolute inset-0 bg-black/30 transition group-hover:bg-black/40' />
 
-						<p className="relative font-semibold text-white">{board.title}</p>
+						<p className='relative font-semibold text-white'>{board.title}</p>
 					</Link>
 				))}
 
-				<FormPopover sideOffset={10} side="right">
+				<FormPopover sideOffset={10} side='right'>
 					<div
-						role="button"
-						className="relative flex flex-col gap-y-1 items-center justify-center cursor-pointer aspect-video size-full bg-muted rounded-sm hover:opacity-75 transition"
+						role='button'
+						className='relative flex aspect-video size-full cursor-pointer flex-col items-center justify-center gap-y-1 rounded-sm bg-muted transition hover:opacity-75'
 					>
-						<p className="text-sm">Create new board</p>
+						<p className='text-sm'>Create new board</p>
 
-						<span className="text-xs">
+						<span className='text-xs'>
 							{isPro ? 'Unlimited' : `${MAX_FREE_BOARDS - availableCount} remaining`}
 						</span>
 
 						<Hint
 							sideOffset={40}
-							description="Free Workspaces can have up to 5 open boards. For unlimited boards upgrade this workspace."
+							description='Free Workspaces can have up to 5 open boards. For unlimited boards upgrade this workspace.'
 						>
-							<HelpCircleIcon className="absolute bottom-2 right-2 size-3.5" />
+							<HelpCircleIcon className='absolute right-2 bottom-2 size-3.5' />
 						</Hint>
 					</div>
 				</FormPopover>
@@ -70,15 +70,15 @@ export const BoardList = async () => {
 
 BoardList.Skeleton = function SkeletonBoardList() {
 	return (
-		<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-			<Skeleton className="aspect-video size-full p-2" />
-			<Skeleton className="aspect-video size-full p-2" />
-			<Skeleton className="aspect-video size-full p-2" />
-			<Skeleton className="aspect-video size-full p-2" />
-			<Skeleton className="aspect-video size-full p-2" />
-			<Skeleton className="aspect-video size-full p-2" />
-			<Skeleton className="aspect-video size-full p-2" />
-			<Skeleton className="aspect-video size-full p-2" />
+		<div className='grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4'>
+			<Skeleton className='aspect-video size-full p-2' />
+			<Skeleton className='aspect-video size-full p-2' />
+			<Skeleton className='aspect-video size-full p-2' />
+			<Skeleton className='aspect-video size-full p-2' />
+			<Skeleton className='aspect-video size-full p-2' />
+			<Skeleton className='aspect-video size-full p-2' />
+			<Skeleton className='aspect-video size-full p-2' />
+			<Skeleton className='aspect-video size-full p-2' />
 		</div>
 	)
 }

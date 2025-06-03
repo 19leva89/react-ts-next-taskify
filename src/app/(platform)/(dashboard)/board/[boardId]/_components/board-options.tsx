@@ -26,32 +26,32 @@ export const BoardOptions = ({ id }: Props) => {
 		<Popover>
 			<PopoverTrigger asChild>
 				<Button
-					variant="transparent"
-					size="icon"
-					className="size-auto p-2 transition-colors ease-in-out duration-300"
+					variant='transparent'
+					size='icon'
+					className='size-auto p-2 transition-colors duration-300 ease-in-out'
 				>
-					<MoreHorizontalIcon className="size-4" />
+					<MoreHorizontalIcon className='size-4' />
 				</Button>
 			</PopoverTrigger>
 
-			<PopoverContent className="px-0 pt-3 pb-3" side="bottom" align="start">
-				<div className="text-sm font-medium text-center text-neutral-600 pb-4">Board actions</div>
+			<PopoverContent className='px-0 pt-3 pb-3' side='bottom' align='start'>
+				<div className='pb-4 text-center text-sm font-medium text-neutral-600'>Board actions</div>
 
 				<PopoverClose asChild>
 					<Button
-						variant="ghost"
-						size="icon"
-						className="size-auto p-2 absolute top-2 right-2 text-neutral-600 transition-colors ease-in-out duration-300"
+						variant='ghost'
+						size='icon'
+						className='absolute top-2 right-2 size-auto p-2 text-neutral-600 transition-colors duration-300 ease-in-out'
 					>
-						<XIcon className="size-4" />
+						<XIcon className='size-4' />
 					</Button>
 				</PopoverClose>
 
 				<Button
-					variant="ghost"
+					variant='ghost'
 					onClick={onDelete}
 					disabled={isLoading}
-					className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm transition-colors ease-in-out duration-300"
+					className='h-auto w-full justify-start rounded-none p-2 px-5 text-sm font-normal transition-colors duration-300 ease-in-out'
 				>
 					Delete this board
 				</Button>

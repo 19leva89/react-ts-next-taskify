@@ -9,10 +9,10 @@ interface Props {
 
 export const BoardNavbar = async ({ data }: Props) => {
 	return (
-		<div className="z-40 w-full h-14 bg-black/50 fixed top-14 flex items-center px-6 gap-x-4 text-white">
+		<div className='fixed top-14 z-40 flex h-14 w-full items-center gap-x-4 bg-black/50 px-6 text-white'>
 			<BoardTitleForm data={data} />
 
-			<div className="ml-auto">
+			<div className='ml-auto'>
 				<BoardOptions id={data.id} />
 			</div>
 		</div>

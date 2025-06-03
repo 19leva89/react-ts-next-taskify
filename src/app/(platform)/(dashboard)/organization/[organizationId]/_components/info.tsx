@@ -18,24 +18,24 @@ export const Info = ({ isPro }: Props) => {
 	}
 
 	return (
-		<div className="flex items-center gap-x-4">
+		<div className='flex items-center gap-x-4'>
 			{organization?.imageUrl && (
-				<div className="size-15 relative">
+				<div className='relative size-15'>
 					<Image
 						fill
 						src={organization.imageUrl}
-						alt="Organization"
-						className="rounded-md object-cover"
-						sizes="20vw"
+						alt='Organization'
+						className='rounded-md object-cover'
+						sizes='20vw'
 					/>
 				</div>
 			)}
 
-			<div className="space-y-1">
-				<p className="font-semibold text-xl"> {organization?.name}</p>
+			<div className='space-y-1'>
+				<p className='text-xl font-semibold'> {organization?.name}</p>
 
-				<div className="flex items-center text-xs text-muted-foreground">
-					<CreditCardIcon className="size-3 mr-1" />
+				<div className='flex items-center text-xs text-muted-foreground'>
+					<CreditCardIcon className='mr-1 size-3' />
 
 					{isPro ? 'Pro' : 'Free'}
 				</div>
@@ -46,17 +46,17 @@ export const Info = ({ isPro }: Props) => {
 
 Info.Skeleton = function SkeletonInfo() {
 	return (
-		<div className="flex items-center gap-x-4">
-			<div className="size-15 relative">
-				<Skeleton className="size-full absolute" />
+		<div className='flex items-center gap-x-4'>
+			<div className='relative size-15'>
+				<Skeleton className='absolute size-full' />
 			</div>
 
-			<div className="space-y-2">
-				<Skeleton className="h-10 w-50" />
+			<div className='space-y-2'>
+				<Skeleton className='h-10 w-50' />
 
-				<div className="flex items-center">
-					<Skeleton className="size-4 mr-2" />
-					<Skeleton className="h-4 w-25" />
+				<div className='flex items-center'>
+					<Skeleton className='mr-2 size-4' />
+					<Skeleton className='h-4 w-25' />
 				</div>
 			</div>
 		</div>

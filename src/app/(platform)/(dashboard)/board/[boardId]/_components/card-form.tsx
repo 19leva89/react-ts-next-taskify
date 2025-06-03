@@ -63,29 +63,29 @@ export const CardForm = forwardRef<HTMLTextAreaElement, Props>(
 
 		if (isEditing) {
 			return (
-				<form action={onSubmit} ref={formRef} className="m-1 py-0.5 px-1 space-y-4">
+				<form action={onSubmit} ref={formRef} className='m-1 space-y-4 px-1 py-0.5'>
 					<FormTextarea
-						id="title"
+						id='title'
 						ref={ref}
 						onKeyDown={onTextareaKeyDown}
 						errors={fieldErrors}
-						className="border-transparent hover:border-input focus:border-input transition bg-white"
-						placeholder="Enter a title for this card..."
+						className='border-transparent bg-white transition hover:border-input focus:border-input'
+						placeholder='Enter a title for this card...'
 					/>
 
-					<input hidden id="listId" defaultValue={listId} name="listId" />
-					<input hidden id="boardId" defaultValue={params.boardId} name="boardId" />
+					<input hidden id='listId' defaultValue={listId} name='listId' />
+					<input hidden id='boardId' defaultValue={params.boardId} name='boardId' />
 
-					<div className="flex items-center gap-x-1">
+					<div className='flex items-center gap-x-1'>
 						<FormSubmit>Add card</FormSubmit>
 
 						<Button
-							variant="ghost"
-							size="sm"
+							variant='ghost'
+							size='sm'
 							onClick={disableEditing}
-							className="transition-colors ease-in-out duration-300"
+							className='transition-colors duration-300 ease-in-out'
 						>
-							<XIcon className="size-5" />
+							<XIcon className='size-5' />
 						</Button>
 					</div>
 				</form>
@@ -93,14 +93,14 @@ export const CardForm = forwardRef<HTMLTextAreaElement, Props>(
 		}
 
 		return (
-			<div className="pt-2 px-2">
+			<div className='px-2 pt-2'>
 				<Button
-					variant="ghost"
-					size="sm"
+					variant='ghost'
+					size='sm'
 					onClick={enableEditing}
-					className="h-auto px-2 py-1.5 w-full justify-start text-muted-foreground text-sm transition-colors ease-in-out duration-300"
+					className='h-auto w-full justify-start px-2 py-1.5 text-sm text-muted-foreground transition-colors duration-300 ease-in-out'
 				>
-					<PlusIcon className="size-4 mr-2" />
+					<PlusIcon className='mr-2 size-4' />
 					Add a card
 				</Button>
 			</div>

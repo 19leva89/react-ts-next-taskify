@@ -132,9 +132,9 @@ export const ListContainer = ({ data, boardId }: Props) => {
 
 	return (
 		<DragDropContext onDragEnd={onDragEnd}>
-			<Droppable droppableId="list" type="list" direction="horizontal">
+			<Droppable droppableId='list' type='list' direction='horizontal'>
 				{(provided) => (
-					<ol {...provided.droppableProps} ref={provided.innerRef} className="flex gap-x-3 h-full">
+					<ol {...provided.droppableProps} ref={provided.innerRef} className='flex h-full gap-x-3'>
 						{orderedData.map((list, index) => {
 							return <ListItem key={list.id} index={index} data={list} />
 						})}
@@ -143,7 +143,7 @@ export const ListContainer = ({ data, boardId }: Props) => {
 
 						<ListForm />
 
-						<div className="flex-shrink-0 w-1" />
+						<div className='w-1 flex-shrink-0' />
 					</ol>
 				)}
 			</Droppable>

@@ -54,28 +54,28 @@ export const Actions = ({ data }: Props) => {
 	}
 
 	return (
-		<div className="space-y-2 mt-2">
-			<p className="text-xs font-semibold">Actions</p>
+		<div className='mt-2 space-y-2'>
+			<p className='text-xs font-semibold'>Actions</p>
 
 			<Button
-				variant="gray"
-				size="inline"
+				variant='gray'
+				size='inline'
 				onClick={onCopy}
 				disabled={isLoadingCopy}
-				className="w-full justify-start transition-colors ease-in-out duration-300"
+				className='w-full justify-start transition-colors duration-300 ease-in-out'
 			>
-				<CopyIcon className="size-4 mr-2" />
+				<CopyIcon className='mr-2 size-4' />
 				Copy
 			</Button>
 
 			<Button
-				variant="destructive"
-				size="inline"
+				variant='destructive'
+				size='inline'
 				onClick={onDelete}
 				disabled={isLoadingDelete}
-				className="w-full justify-start transition-colors ease-in-out duration-300"
+				className='w-full justify-start transition-colors duration-300 ease-in-out'
 			>
-				<TrashIcon className="size-4 mr-2" />
+				<TrashIcon className='mr-2 size-4' />
 				Delete
 			</Button>
 		</div>
@@ -84,10 +84,10 @@ export const Actions = ({ data }: Props) => {
 
 Actions.Skeleton = function SkeletonActions() {
 	return (
-		<div className="space-y-2 mt-2">
-			<Skeleton className="h-4 w-20 bg-neutral-200" />
-			<Skeleton className="h-8 w-full bg-neutral-200" />
-			<Skeleton className="h-8 w-full bg-neutral-200" />
+		<div className='mt-2 space-y-2'>
+			<Skeleton className='h-4 w-20 bg-neutral-200' />
+			<Skeleton className='h-8 w-full bg-neutral-200' />
+			<Skeleton className='h-8 w-full bg-neutral-200' />
 		</div>
 	)
 }

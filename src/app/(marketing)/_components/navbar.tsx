@@ -5,22 +5,17 @@ import { Logo } from '@/components/shared/logo'
 
 export const Navbar = () => {
 	return (
-		<div className="fixed top-0 w-full h-14 px-4 border-b shadow-sm bg-white flex items-center">
-			<div className="md:max-w-screen-2xl mx-auto flex items-center w-full justify-between">
+		<div className='fixed top-0 flex h-14 w-full items-center border-b bg-white px-4 shadow-sm'>
+			<div className='mx-auto flex w-full items-center justify-between md:max-w-screen-2xl'>
 				<Logo />
 
-				<div className="space-x-4 md:block md:w-auto flex items-center justify-between w-full">
-					<Button
-						size="sm"
-						variant="outline"
-						className="transition-colors ease-in-out duration-300"
-						asChild
-					>
-						<Link href="/sign-in">Login</Link>
+				<div className='flex w-full items-center justify-between space-x-4 md:block md:w-auto'>
+					<Button size='sm' variant='outline' className='transition-colors duration-300 ease-in-out' asChild>
+						<Link href='/sign-in'>Login</Link>
 					</Button>
 
-					<Button size="sm" className="transition-colors ease-in-out duration-300" asChild>
-						<Link href="/sign-up">Get Taskify for free</Link>
+					<Button size='sm' className='transition-colors duration-300 ease-in-out' asChild>
+						<Link href='/sign-up'>Get Taskify for free</Link>
 					</Button>
 				</div>
 			</div>

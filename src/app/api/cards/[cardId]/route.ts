@@ -21,7 +21,7 @@ export async function GET(req: NextRequest, { params }: Props) {
 		})
 
 		return NextResponse.json(card)
-	} catch (error) {
+	} catch {
 		return new NextResponse('Internal Error', { status: 500 })
 	}
 }

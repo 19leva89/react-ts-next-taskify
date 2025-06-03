@@ -34,10 +34,10 @@ export const SubscriptionButton = ({ isPro }: Props) => {
 
 	return (
 		<Button
-			variant="primary"
+			variant='primary'
 			onClick={onClick}
 			disabled={isLoading}
-			className="transition-colors ease-in-out duration-300"
+			className='transition-colors duration-300 ease-in-out'
 		>
 			{isPro ? 'Manage subscription' : 'Upgrade to Pro'}
 		</Button>

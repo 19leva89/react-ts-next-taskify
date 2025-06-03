@@ -28,10 +28,10 @@ export const FormInput = forwardRef<HTMLInputElement, Props>(
 		const { pending } = useFormStatus()
 
 		return (
-			<div className="space-y-2">
-				<div className="space-y-1">
+			<div className='space-y-2'>
+				<div className='space-y-1'>
 					{label ? (
-						<Label htmlFor={id} className="text-xs font-semibold text-neutral-700">
+						<Label htmlFor={id} className='text-xs font-semibold text-neutral-700'>
 							{label}
 						</Label>
 					) : null}
@@ -43,7 +43,7 @@ export const FormInput = forwardRef<HTMLInputElement, Props>(
 						placeholder={placeholder}
 						required={required}
 						disabled={pending || disabled}
-						className={cn('text-sm px-2 py-1 h-7', className)}
+						className={cn('h-7 px-2 py-1 text-sm', className)}
 						defaultValue={defaultValue}
 						onBlur={onBlur}
 						ref={ref}

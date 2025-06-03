@@ -43,13 +43,13 @@ export const Sidebar = ({ storageKey = 't-sidebar-state' }: Props) => {
 	if (!isLoadedOrg || !isLoadedOrgList || userMemberships.isLoading) {
 		return (
 			<>
-				<div className="flex items-center justify-between mb-2">
-					<Skeleton className="h-10 w-[50%]" />
+				<div className='mb-2 flex items-center justify-between'>
+					<Skeleton className='h-10 w-[50%]' />
 
-					<Skeleton className="size-10" />
+					<Skeleton className='size-10' />
 				</div>
 
-				<div className="space-y-2">
+				<div className='space-y-2'>
 					<NavItem.Skeleton />
 					<NavItem.Skeleton />
 					<NavItem.Skeleton />
@@ -60,23 +60,23 @@ export const Sidebar = ({ storageKey = 't-sidebar-state' }: Props) => {
 
 	return (
 		<>
-			<div className="font-medium text-xs flex items-center mb-1">
-				<span className="pl-4">Workspaces</span>
+			<div className='mb-1 flex items-center text-xs font-medium'>
+				<span className='pl-4'>Workspaces</span>
 
 				<Button
-					type="button"
-					variant="ghost"
-					size="icon"
-					className="ml-auto transition-colors ease-in-out duration-300"
+					type='button'
+					variant='ghost'
+					size='icon'
+					className='ml-auto transition-colors duration-300 ease-in-out'
 					asChild
 				>
-					<Link href="/select-org">
-						<PlusIcon className="size-4" />
+					<Link href='/select-org'>
+						<PlusIcon className='size-4' />
 					</Link>
 				</Button>
 			</div>
 
-			<Accordion type="multiple" defaultValue={defaultAccordionValue} className="space-y-2">
+			<Accordion type='multiple' defaultValue={defaultAccordionValue} className='space-y-2'>
 				{userMemberships.data.map(({ organization }) => (
 					<NavItem
 						key={organization.id}
