@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { PropsWithChildren } from 'react'
+import { Analytics } from '@vercel/analytics/next'
 
 import { textFont } from '@/app/fonts'
 import { siteConfig } from '@/config/site'
@@ -15,7 +16,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: PropsWithChildren) {
 	return (
 		<html lang='en'>
-			<body className={textFont.className}>{children}</body>
+			<body className={textFont.className}>
+				{children}
+
+				{/* Allow track page views for Vercel */}
+				<Analytics />
+			</body>
 		</html>
 	)
 }

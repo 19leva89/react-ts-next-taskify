@@ -5,13 +5,12 @@ export const CreateCard = z.object({
 	listId: z.string(),
 	title: z
 		.string({
-			required_error: 'Title is required',
-			invalid_type_error: 'Title is required',
+			error: 'Title is required',
 		})
 		.min(3, {
-			message: 'Title is too short',
+			error: 'Title is too short',
 		})
 		.max(200, {
-			message: 'Title is too long, maximum 200 letters',
+			error: 'Title is too long, maximum 200 letters',
 		}),
 })

@@ -6,27 +6,25 @@ export const UpdateCard = z.object({
 	title: z.optional(
 		z
 			.string({
-				required_error: 'Title is required',
-				invalid_type_error: 'Title is required',
+				error: 'Title is required',
 			})
 			.min(3, {
-				message: 'Title is too short',
+				error: 'Title is too short',
 			})
 			.max(200, {
-				message: 'Title is too long, maximum 200 letters',
+				error: 'Title is too long, maximum 200 letters',
 			}),
 	),
 	description: z.optional(
 		z
 			.string({
-				required_error: 'Description is required',
-				invalid_type_error: 'Description is required',
+				error: 'Description is required',
 			})
 			.min(3, {
-				message: 'Description is too short',
+				error: 'Description is too short',
 			})
 			.max(500, {
-				message: 'Description is too long, maximum 500 letters',
+				error: 'Description is too long, maximum 500 letters',
 			}),
 	),
 })
