@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation'
 import { auth } from '@clerk/nextjs/server'
 
-import { prisma } from '@/lib/db'
+import { prisma } from '@/lib/prisma'
 import { Skeleton } from '@/components/ui'
 import { ActivityItem } from '@/components/shared/activity-item'
 

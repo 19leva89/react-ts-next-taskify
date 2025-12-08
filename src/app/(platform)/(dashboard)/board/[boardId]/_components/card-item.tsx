@@ -1,8 +1,8 @@
 'use client'
 
-import { Card } from '@prisma/client'
 import { Draggable } from '@hello-pangea/dnd'
 
+import { Card } from '@/generated/prisma/client'
 import { useCardModal } from '@/hooks/use-card-modal'
 
 interface Props {

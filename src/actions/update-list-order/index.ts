@@ -3,7 +3,7 @@
 import { auth } from '@clerk/nextjs/server'
 import { revalidatePath } from 'next/cache'
 
-import { prisma } from '@/lib/db'
+import { prisma } from '@/lib/prisma'
 import { createSafeAction } from '@/lib/create-safe-action'
 import { UpdateListOrder } from '@/actions/update-list-order/schema'
 import { InputType, ReturnType } from '@/actions/update-list-order/types'

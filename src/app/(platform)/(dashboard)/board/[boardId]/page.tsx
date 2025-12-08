@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation'
 import { auth } from '@clerk/nextjs/server'
 
-import { prisma } from '@/lib/db'
+import { prisma } from '@/lib/prisma'
 import { ListContainer } from '@/app/(platform)/(dashboard)/board/[boardId]/_components/list-container'
 
 interface Props {

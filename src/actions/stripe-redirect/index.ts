@@ -3,8 +3,8 @@
 import { auth, currentUser } from '@clerk/nextjs/server'
 import { revalidatePath } from 'next/cache'
 
-import { prisma } from '@/lib/db'
 import { absoluteUrl } from '@/lib'
+import { prisma } from '@/lib/prisma'
 import { stripe } from '@/lib/stripe'
 import { createSafeAction } from '@/lib/create-safe-action'
 import { ReturnType } from '@/actions/stripe-redirect/types'

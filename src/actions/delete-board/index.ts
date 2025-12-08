@@ -3,10 +3,10 @@
 import { redirect } from 'next/navigation'
 import { auth } from '@clerk/nextjs/server'
 import { revalidatePath } from 'next/cache'
-import { ACTION, ENTITY_TYPE } from '@prisma/client'
 
-import { prisma } from '@/lib/db'
+import { prisma } from '@/lib/prisma'
 import { createAuditLog } from '@/lib/create-audit-log'
+import { ACTION, ENTITY_TYPE } from '@/lib/prisma-enums'
 import { decreaseAvailableCount } from '@/lib/org-limit'
 import { DeleteBoard } from '@/actions/delete-board/schema'
 import { createSafeAction } from '@/lib/create-safe-action'

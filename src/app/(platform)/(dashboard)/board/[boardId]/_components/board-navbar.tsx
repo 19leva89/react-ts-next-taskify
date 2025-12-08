@@ -1,5 +1,4 @@
-import { Board } from '@prisma/client'
-
+import { Board } from '@/generated/prisma/client'
 import { BoardOptions } from '@/app/(platform)/(dashboard)/board/[boardId]/_components/board-options'
 import { BoardTitleForm } from '@/app/(platform)/(dashboard)/board/[boardId]/_components/board-title-form'
 

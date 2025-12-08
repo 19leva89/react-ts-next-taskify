@@ -1,7 +1,7 @@
 import { auth } from '@clerk/nextjs/server'
 import { NextRequest, NextResponse } from 'next/server'
 
-import { prisma } from '@/lib/db'
+import { prisma } from '@/lib/prisma'
 
 interface Props {
 	params: Promise<{ cardId: string }>

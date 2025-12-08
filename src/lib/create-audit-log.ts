@@ -1,7 +1,7 @@
-import { ACTION, ENTITY_TYPE } from '@prisma/client'
+import { ACTION, ENTITY_TYPE } from '@/lib/prisma-enums'
 import { auth, currentUser } from '@clerk/nextjs/server'
 
-import { prisma } from '@/lib/db'
+import { prisma } from '@/lib/prisma'
 
 interface Props {
 	entityId: string

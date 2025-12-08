@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { Card } from '@prisma/client'
 
+import { Card } from '@/generated/prisma/client'
 import { CopyCard } from '@/actions/copy-card/schema'
 import { ActionState } from '@/lib/create-safe-action'
 

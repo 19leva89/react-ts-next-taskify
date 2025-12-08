@@ -2,7 +2,7 @@ import { PropsWithChildren } from 'react'
 import { auth } from '@clerk/nextjs/server'
 import { notFound, redirect } from 'next/navigation'
 
-import { prisma } from '@/lib/db'
+import { prisma } from '@/lib/prisma'
 import { BoardNavbar } from '@/app/(platform)/(dashboard)/board/[boardId]/_components/board-navbar'
 
 interface Props {

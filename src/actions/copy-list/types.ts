@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { List } from '@prisma/client'
 
+import { List } from '@/generated/prisma/client'
 import { CopyList } from '@/actions/copy-list/schema'
 import { ActionState } from '@/lib/create-safe-action'
 

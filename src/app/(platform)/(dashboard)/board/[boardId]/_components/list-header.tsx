@@ -1,11 +1,11 @@
 'use client'
 
 import { toast } from 'sonner'
-import { List } from '@prisma/client'
 import { useEventListener } from 'usehooks-ts'
 import { ComponentRef, useRef, useState } from 'react'
 
 import { useAction } from '@/hooks/use-action'
+import { List } from '@/generated/prisma/client'
 import { updateList } from '@/actions/update-list'
 import { FormInput } from '@/components/shared/form/form-input'
 import { ListOptions } from '@/app/(platform)/(dashboard)/board/[boardId]/_components/list-options'

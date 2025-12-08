@@ -1,14 +1,14 @@
 'use client'
 
 import { toast } from 'sonner'
-import { List } from '@prisma/client'
 import { MoreHorizontalIcon, XIcon } from 'lucide-react'
 
-import { Button, Popover, PopoverClose, PopoverContent, PopoverTrigger, Separator } from '@/components/ui'
 import { useAction } from '@/hooks/use-action'
 import { copyList } from '@/actions/copy-list'
+import { List } from '@/generated/prisma/client'
 import { deleteList } from '@/actions/delete-list'
 import { FormSubmit } from '@/components/shared/form/form-submit'
+import { Button, Popover, PopoverClose, PopoverContent, PopoverTrigger, Separator } from '@/components/ui'
 
 interface Props {
 	data: List

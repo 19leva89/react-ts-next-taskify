@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation'
 import { auth } from '@clerk/nextjs/server'
 import { HelpCircleIcon, User2Icon } from 'lucide-react'
 
-import { prisma } from '@/lib/db'
+import { prisma } from '@/lib/prisma'
 import { Skeleton } from '@/components/ui'
 import { Hint } from '@/components/shared/hint'
 import { getAvailableCount } from '@/lib/org-limit'

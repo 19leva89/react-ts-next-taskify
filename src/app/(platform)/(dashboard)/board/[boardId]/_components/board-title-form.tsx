@@ -1,11 +1,11 @@
 'use client'
 
 import { toast } from 'sonner'
-import { Board } from '@prisma/client'
 import { ComponentRef, useRef, useState } from 'react'
 
 import { Button } from '@/components/ui'
 import { useAction } from '@/hooks/use-action'
+import { Board } from '@/generated/prisma/client'
 import { updateBoard } from '@/actions/update-board'
 import { FormInput } from '@/components/shared/form/form-input'
 

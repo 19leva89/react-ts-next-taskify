@@ -1,8 +1,8 @@
 import { auth } from '@clerk/nextjs/server'
-import { ENTITY_TYPE } from '@prisma/client'
 import { NextRequest, NextResponse } from 'next/server'
 
-import { prisma } from '@/lib/db'
+import { prisma } from '@/lib/prisma'
+import { ENTITY_TYPE } from '@/lib/prisma-enums'
 
 interface Props {
 	params: Promise<{ cardId: string }>

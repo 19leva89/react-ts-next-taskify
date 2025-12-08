@@ -1,9 +1,9 @@
 'use client'
 
-import { AuditLog } from '@prisma/client'
 import { ActivityIcon } from 'lucide-react'
 
 import { Skeleton } from '@/components/ui'
+import { AuditLog } from '@/generated/prisma/client'
 import { ActivityItem } from '@/components/shared/activity-item'
 
 interface Props {

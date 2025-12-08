@@ -2,11 +2,11 @@
 
 import { auth } from '@clerk/nextjs/server'
 import { revalidatePath } from 'next/cache'
-import { ACTION, ENTITY_TYPE } from '@prisma/client'
 
-import { prisma } from '@/lib/db'
+import { prisma } from '@/lib/prisma'
 import { CopyList } from '@/actions/copy-list/schema'
 import { createAuditLog } from '@/lib/create-audit-log'
+import { ACTION, ENTITY_TYPE } from '@/lib/prisma-enums'
 import { createSafeAction } from '@/lib/create-safe-action'
 import { InputType, ReturnType } from '@/actions/copy-list/types'
 
