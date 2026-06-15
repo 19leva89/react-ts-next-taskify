@@ -6,7 +6,7 @@ import { ProModal } from '@/components/shared/modals/pro-modal'
 import { CardModal } from '@/components/shared/modals/card-modal'
 
 export const ModalProvider = () => {
-	const [isMounted, setIsMounted] = useState(false)
+	const [isMounted, setIsMounted] = useState<boolean>(false)
 
 	useEffect(() => {
 		setIsMounted(true)

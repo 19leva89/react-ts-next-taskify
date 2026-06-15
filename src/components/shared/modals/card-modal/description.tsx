@@ -40,7 +40,7 @@ export const Description = ({ data }: Props) => {
 	const formRef = useRef<ComponentRef<'form'>>(null)
 	const textareaRef = useRef<ComponentRef<'textarea'>>(null)
 
-	const [isEditing, setIsEditing] = useState(false)
+	const [isEditing, setIsEditing] = useState<boolean>(false)
 
 	const enableEditing = () => {
 		setIsEditing(true)
@@ -109,7 +109,7 @@ export const Description = ({ data }: Props) => {
 					<div
 						role='button'
 						onClick={enableEditing}
-						className='min-h-[78px] rounded-md bg-neutral-200 px-3.5 py-3 text-sm font-medium break-words'
+						className='min-h-[78px] rounded-md bg-neutral-200 px-3.5 py-3 text-sm font-medium wrap-break-word'
 					>
 						{data.description || 'Add a more detailed description...'}
 					</div>

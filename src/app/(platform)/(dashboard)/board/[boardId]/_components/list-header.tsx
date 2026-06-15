@@ -19,8 +19,8 @@ export const ListHeader = ({ data, onAddCard }: Props) => {
 	const formRef = useRef<ComponentRef<'form'>>(null)
 	const inputRef = useRef<ComponentRef<'input'>>(null)
 
-	const [title, setTitle] = useState(data.title)
-	const [isEditing, setIsEditing] = useState(false)
+	const [title, setTitle] = useState<string>(data.title)
+	const [isEditing, setIsEditing] = useState<boolean>(false)
 
 	const enableEditing = () => {
 		setIsEditing(true)

@@ -22,7 +22,7 @@ export const Header = ({ data }: Props) => {
 
 	const inputRef = useRef<ComponentRef<'input'>>(null)
 
-	const [title, setTitle] = useState(data.title)
+	const [title, setTitle] = useState<string>(data.title)
 
 	const { execute } = useAction(updateCard, {
 		onSuccess: (data) => {

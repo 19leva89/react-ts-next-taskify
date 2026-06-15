@@ -14,6 +14,12 @@ interface Props {
 }
 
 export const BoardTitleForm = ({ data }: Props) => {
+	const formRef = useRef<ComponentRef<'form'>>(null)
+	const inputRef = useRef<ComponentRef<'input'>>(null)
+
+	const [title, setTitle] = useState<string>(data.title)
+	const [isEditing, setIsEditing] = useState<boolean>(false)
+
 	const { execute } = useAction(updateBoard, {
 		onSuccess: (data) => {
 			toast.success(`Board '${data.title}' updated!`)
@@ -25,12 +31,6 @@ export const BoardTitleForm = ({ data }: Props) => {
 			toast.error(error)
 		},
 	})
-
-	const formRef = useRef<ComponentRef<'form'>>(null)
-	const inputRef = useRef<ComponentRef<'input'>>(null)
-
-	const [title, setTitle] = useState(data.title)
-	const [isEditing, setIsEditing] = useState(false)
 
 	const enableEditing = () => {
 		setIsEditing(true)

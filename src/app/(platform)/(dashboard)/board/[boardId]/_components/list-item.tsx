@@ -1,7 +1,7 @@
 'use client'
 
-import { ComponentRef, useRef, useState } from 'react'
 import { Draggable, Droppable } from '@hello-pangea/dnd'
+import { ComponentRef, CSSProperties, useRef, useState } from 'react'
 
 import { cn } from '@/lib'
 import { ListWithCards } from '@/types'
@@ -17,7 +17,7 @@ interface ListItemProps {
 export const ListItem = ({ index, data }: ListItemProps) => {
 	const textareaRef = useRef<ComponentRef<'textarea'>>(null)
 
-	const [isEditing, setIsEditing] = useState(false)
+	const [isEditing, setIsEditing] = useState<boolean>(false)
 
 	const enableEditing = () => {
 		setIsEditing(true)
@@ -35,7 +35,12 @@ export const ListItem = ({ index, data }: ListItemProps) => {
 	return (
 		<Draggable draggableId={data.id} index={index}>
 			{(provided) => (
-				<li {...provided.draggableProps} ref={provided.innerRef} className='h-full w-68 shrink-0 select-none'>
+				<li
+					{...provided.draggableProps}
+					ref={provided.innerRef}
+					style={provided.draggableProps.style as CSSProperties}
+					className='h-full w-68 shrink-0 select-none'
+				>
 					<div {...provided.dragHandleProps} className='w-full rounded-md bg-[#f1f2f4] pb-2 shadow-md'>
 						<ListHeader onAddCard={enableEditing} data={data} />
 

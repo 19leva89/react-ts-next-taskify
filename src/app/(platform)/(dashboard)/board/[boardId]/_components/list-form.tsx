@@ -19,7 +19,7 @@ export const ListForm = () => {
 	const formRef = useRef<ComponentRef<'form'>>(null)
 	const inputRef = useRef<ComponentRef<'input'>>(null)
 
-	const [isEditing, setIsEditing] = useState(false)
+	const [isEditing, setIsEditing] = useState<boolean>(false)
 
 	const enableEditing = () => {
 		setIsEditing(true)

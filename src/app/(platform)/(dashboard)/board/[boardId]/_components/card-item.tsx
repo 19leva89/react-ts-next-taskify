@@ -1,5 +1,6 @@
 'use client'
 
+import { CSSProperties } from 'react'
 import { Draggable } from '@hello-pangea/dnd'
 
 import { Card } from '@/generated/prisma/client'
@@ -22,6 +23,7 @@ export const CardItem = ({ index, data }: Props) => {
 					ref={provided.innerRef}
 					role='button'
 					onClick={() => cardModal.onOpen(data.id)}
+					style={provided.draggableProps.style as CSSProperties}
 					className='truncate rounded-md border-2 border-transparent bg-white px-3 py-2 text-sm shadow-sm hover:border-black'
 				>
 					{data.title}

@@ -25,7 +25,7 @@ function reorder<T>(list: T[], startIndex: number, endIndex: number) {
 }
 
 export const ListContainer = ({ data, boardId }: Props) => {
-	const [orderedData, setOrderedData] = useState(data)
+	const [orderedData, setOrderedData] = useState<ListWithCards[]>(data)
 
 	const { execute: executeUpdateListOrder } = useAction(updateListOrder, {
 		onSuccess: () => {
@@ -143,7 +143,7 @@ export const ListContainer = ({ data, boardId }: Props) => {
 
 						<ListForm />
 
-						<div className='w-1 flex-shrink-0' />
+						<div className='w-1 shrink-0' />
 					</ol>
 				)}
 			</Droppable>

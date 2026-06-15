@@ -10,7 +10,8 @@ import { Sidebar } from '@/app/(platform)/(dashboard)/_components/sidebar'
 
 export const MobileSidebar = () => {
 	const pathname = usePathname()
-	const [isMounted, setIsMounted] = useState(false)
+
+	const [isMounted, setIsMounted] = useState<boolean>(false)
 
 	const onOpen = useMobileSidebar((state) => state.onOpen)
 	const onClose = useMobileSidebar((state) => state.onClose)
